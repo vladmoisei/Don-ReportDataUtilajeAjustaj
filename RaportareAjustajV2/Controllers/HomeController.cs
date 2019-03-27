@@ -4,15 +4,57 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using RaportareAjustajV2.Models;
 
 namespace RaportareAjustajV2.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+
+        RaportareDbContext _context;
+        public HomeController(RaportareDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public IActionResult Index()
+        {            
+            return View(new UserLogatModel { PrimaAccesare = "da"});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(string UserName, string Password)
+        {
+            var user = await _context.Users
+            .FirstOrDefaultAsync(m => m.UserName == UserName);
+            if (user == null)
+            {
+                return View(new UserLogatModel() { NumeUtilizatorGresit = true });                
+            }
+            else if (user.Password != Password)
+                {
+                return View(new UserLogatModel() { ParolaGresita = true });
+            }
+
+            return RedirectToAction("Cuprins", "Home", user.UserName);
+
+
+
+
+            //return View(post);
+
+            //return RedirectToAction(nameof(Login));
+        }
+
+        public IActionResult Cuprins(string UserName)
+        {
+            string userN = UserName;
+            //ViewData["Message"] = "Your application description page.";
+            if (userN!= "")
+                return View(userN);
+            return RedirectToAction("Index");
         }
 
         public IActionResult About()
