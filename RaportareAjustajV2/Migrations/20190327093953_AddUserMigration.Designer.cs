@@ -9,8 +9,8 @@ using RaportareAjustajV2;
 namespace RaportareAjustajV2.Migrations
 {
     [DbContext(typeof(RaportareDbContext))]
-    [Migration("20190326203053_AddUserMig")]
-    partial class AddUserMig
+    [Migration("20190327093953_AddUserMigration")]
+    partial class AddUserMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,13 +26,23 @@ namespace RaportareAjustajV2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsAdmin");
-
-                    b.Property<string>("Nume")
-                        .IsRequired()
+                    b.Property<bool>("IsAdmin")
                         .HasMaxLength(100);
 
-                    b.Property<string>("Parola")
+                    b.Property<bool>("IsEnable")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Nume")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Prenume")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.HasKey("UserId");

@@ -33,14 +33,14 @@ namespace RaportareAjustajV2.Migrations
                     b.Property<string>("Nume")
                         .HasMaxLength(100);
 
-                    b.Property<string>("NumeUtilizator")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Parola")
+                    b.Property<string>("Password")
                         .HasMaxLength(100);
 
                     b.Property<string>("Prenume")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.HasKey("UserId");

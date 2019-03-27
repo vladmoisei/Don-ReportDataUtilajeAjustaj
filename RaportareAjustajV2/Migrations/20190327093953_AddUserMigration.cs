@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RaportareAjustajV2.Migrations
 {
-    public partial class AddUserMig : Migration
+    public partial class AddUserMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,12 @@ namespace RaportareAjustajV2.Migrations
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nume = table.Column<string>(maxLength: 100, nullable: false),
-                    Parola = table.Column<string>(maxLength: 100, nullable: true),
-                    IsAdmin = table.Column<bool>(nullable: false)
+                    UserName = table.Column<string>(maxLength: 100, nullable: false),
+                    Password = table.Column<string>(maxLength: 100, nullable: true),
+                    Nume = table.Column<string>(maxLength: 100, nullable: true),
+                    Prenume = table.Column<string>(maxLength: 100, nullable: true),
+                    IsAdmin = table.Column<bool>(maxLength: 100, nullable: false),
+                    IsEnable = table.Column<bool>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
