@@ -38,8 +38,8 @@ namespace RaportareAjustajV2.Controllers
                 return View(new UserLogatModel() { ParolaGresita = true });
             }
 
-            return RedirectToAction("Cuprins", "Home", user.UserName);
-
+            //return RedirectToAction("Cuprins/" + user.UserName, "Home");
+            return RedirectToAction("Cuprins", "Home", new ViewUserModel(user));
 
 
 
@@ -48,13 +48,21 @@ namespace RaportareAjustajV2.Controllers
             //return RedirectToAction(nameof(Login));
         }
 
-        public IActionResult Cuprins(string UserName)
+        //public IActionResult Cuprins(string id)
+        public IActionResult Cuprins(ViewUserModel user)
         {
-            string userN = UserName;
+            return View(user);
+            //return Content(user.UserName);
+            //string userName = id;
+            //if (userName != "") return View(new User { UserName = userName });
+                //return View(userN);
+            //return RedirectToAction("Index")
+            //return Content(id);
+
+            //return View(id);
+            //string userN = UserName;
             //ViewData["Message"] = "Your application description page.";
-            if (userN!= "")
-                return View(userN);
-            return RedirectToAction("Index");
+;
         }
 
         public IActionResult About()

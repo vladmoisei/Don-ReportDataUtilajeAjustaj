@@ -58,6 +58,17 @@ namespace RaportareAjustajV2
 
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: "CuprinsPage",
+                //    template: "Cuprins",
+                //    defaults: new
+                //        {
+                //        controller = "Home",
+                //        action = "Cuprins",
+                //        moreInfo = ""
+                //        }
+                //    );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
