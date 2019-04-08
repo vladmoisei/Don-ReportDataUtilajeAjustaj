@@ -19,13 +19,9 @@ namespace RaportareAjustajV2.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index([Bind("UserId,UserName,Password,Nume,Prenume,IsAdmin,IsEnable")] User utilizator)
+        public async Task<IActionResult> Index()
         {
-            //var c = Tuple.Create(await _context.Users.ToListAsync(), utilizator);
-            //return Content(utilizator.UserName);
-            //return RedirectToAction("Cuprins", "Home", utilizator);
             return View(await _context.Users.ToListAsync());
-            //return View(c);
         }
 
         // GET: Users/Details/5
@@ -57,7 +53,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,UserName,Password,Nume,Prenume,IsAdmin,IsEnable")] User user)
+        public async Task<IActionResult> Create([Bind("UserId,UserName,Password,Nume,Prenume,Utilaj,IsAdmin,IsEnable")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +85,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,UserName,Password,Nume,Prenume,IsAdmin,IsEnable")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,UserName,Password,Nume,Prenume,Utilaj,IsAdmin,IsEnable")] User user)
         {
             if (id != user.UserId)
             {

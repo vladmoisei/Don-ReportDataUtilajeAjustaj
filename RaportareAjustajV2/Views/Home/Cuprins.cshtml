@@ -8,10 +8,39 @@
 <h5>Bine ai venit @Model.Prenume .</h5>
 <h5>Te rog selecteaza utiliajul pentru care doresti sa introduci datele.</h5>
 
-@if (Model.IsAdmin)
+@foreach (UtilajeAjustaj utilaj in Enum.GetValues(typeof(UtilajeAjustaj)))
 {
+<div>
+    @if (Model.Utilaj == utilaj || Model.Utilaj == UtilajeAjustaj.Toate)
+    {
+        if (utilaj != UtilajeAjustaj.Toate)
+        {
     @Html.ActionLink(
-    linkText: "Creare utilizator",
+                linkText: utilaj.ToString(),
+                actionName: "Index",
+                controllerName: "utilaj.ToString()",
+                routeValues: new
+                {
+                    UserId = Model.UserId,
+                    UserName = Model.UserName,
+                    Password = Model.Password,
+                    Nume = Model.Nume,
+                    Prenume = Model.Prenume,
+                    IsAdmin = Model.IsAdmin,
+                    IsEnable = Model.IsEnable,
+                    Utilaj = Model.Utilaj
+                },
+                htmlAttributes: null
+                )}
+    }
+</div>
+}
+@*<div>
+    <a id="@Model.Utilaj" class="" asp-action="Elti" asp-route-id="@Model">Elti</a>
+    @if (Model.Utilaj == UtilajeAjustaj.Elind || Model.Utilaj == UtilajeAjustaj.Toate)
+    {
+        @Html.ActionLink(
+    linkText: "Lista utilizatori",
     actionName: "Index",
     controllerName: "Users",
     routeValues: new { UserId = Model.UserId,
@@ -20,35 +49,62 @@
         Nume = Model.Nume,
         Prenume = Model.Prenume,
         IsAdmin = Model.IsAdmin,
-        IsEnable = Model.IsEnable
+        IsEnable = Model.IsEnable,
+        Utilaj = Model.Utilaj
+    },
+    htmlAttributes: null
+    )
+    }
+</div>
+<div>
+    <a id="Elind" class="hide" asp-action="Elind" asp-route-id="@Model">Elind</a>
+</div>
+<div>
+    <a id="Fierastraie" class="hide" asp-action="Fierastraie" asp-route-id="@Model">Fierastraie</a>
+</div>
+<div>
+    <a id="PresaValdora" class="hide" asp-action="PresaValdora" asp-route-id="@Model">Presa Valdora</a>
+</div>
+<div>
+    <a id="RullatriceProjectMan" class="hide" asp-action="RullatriceProjectman" asp-route-id="@Model">Rullatrice Projectman</a>
+</div>
+<div>
+    <a id="RullatriceLandgraf" class="hide" asp-action="RullatriceLandgraf" asp-route-id="@Model">Rullatrice Landgraf</a>
+</div>
+<div>
+    <a id="PellatriceLandgraf" class="hide" asp-action="PellatriceLandgraf" asp-route-id="@Model">Masina de decojit</a>
+</div>
+<div>
+    <a id="NovaFlux" class="hide" asp-action="NovaFlux" asp-route-id="@Model">Nova Flux</a>
+</div>*@
+
+
+@if (Model.IsAdmin)
+{
+    <h3>Atribuiri utilizatori</h3>
+    @Html.ActionLink(
+    linkText: "Lista utilizatori",
+    actionName: "Index",
+    controllerName: "Users",
+    routeValues: new { UserId = Model.UserId,
+        UserName =Model.UserName,
+        Password = Model.Password,
+        Nume = Model.Nume,
+        Prenume = Model.Prenume,
+        IsAdmin = Model.IsAdmin,
+        IsEnable = Model.IsEnable,
+        Utilaj = Model.Utilaj
     },
     htmlAttributes: null
     )
 }
-<div>
-    <a asp-action="Elti" asp-route-id="@Model">Elti</a>
-</div>
-<div>
-    <a asp-action="Elind" asp-route-id="@Model">Elind</a>
-</div>
-<div>
-    <a asp-action="Fierastraie" asp-route-id="@Model">Fierastraie</a>
-</div>
-<div>
-    <a asp-action="PresaValdora" asp-route-id="@Model">Presa Valdora</a>
-</div>
-<div>
-    <a asp-action="RullatriceProjectman" asp-route-id="@Model">Rullatrice Projectman</a>
-</div>
-<div>
-    <a asp-action="RullatriceLandgraf" asp-route-id="@Model">Rullatrice Landgraf</a>
-</div>
-<div>
-    <a asp-action="PellatriceLandgraf" asp-route-id="@Model">Masina de decojit</a>
-</div>
-<div>
-    <a asp-action="NovaFlux" asp-route-id="@Model">Nova Flux</a>
-</div>
+
+<script>
+    $(document).ready(function () {
+        console.log("ready!");
+        //$('#Elind')
+    });
+</script>
 
 
 @functions{

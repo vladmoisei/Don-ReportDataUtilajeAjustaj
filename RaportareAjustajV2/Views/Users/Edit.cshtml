@@ -34,6 +34,11 @@
                 <span asp-validation-for="Prenume" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Utilaj" class="control-label"></label>
+                <select asp-for="Utilaj" class="form-control" asp-items="Html.GetEnumSelectList<UtilajeAjustaj>()"></select>
+                <span asp-validation-for="Utilaj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)

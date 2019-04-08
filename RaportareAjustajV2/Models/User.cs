@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace RaportareAjustajV2
 {
+    public enum UtilajeAjustaj
+    {
+        Elti,
+        Elind,
+        Fierastraie,
+        PresaLandgraf,
+        PresaProjectMan,
+        Pelatrice,
+        Novaflux,
+        Toate
+    }
     public class User
     {
         public int UserId { get; set; }
@@ -18,6 +29,7 @@ namespace RaportareAjustajV2
         public string Nume { get; set; }
         [MaxLength(100)]
         public string Prenume { get; set; }
+        public UtilajeAjustaj Utilaj { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsEnable { get; set; }
     }

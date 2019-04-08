@@ -12,7 +12,7 @@ namespace RaportareAjustajV2.Controllers
 {
     public class HomeController : Controller
     {
-
+        //Bind("UserId,UserName,Password,Nume,Prenume,IsAdmin,IsEnable")] User utilizator
         RaportareDbContext _context;
         public HomeController(RaportareDbContext context)
         {

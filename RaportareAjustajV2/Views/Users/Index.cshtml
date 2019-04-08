@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<RaportareAjustajV2.User>
-@*@model Tuple< List < RaportareAjustajV2.User >, ViewUserModel >*@
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -25,6 +25,9 @@
                 @Html.DisplayNameFor(model => model.Prenume)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Utilaj)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.IsAdmin)
             </th>
             <th>
@@ -47,6 +50,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilaj)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsAdmin)
