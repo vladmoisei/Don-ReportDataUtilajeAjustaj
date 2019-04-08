@@ -18,9 +18,7 @@ namespace RaportareAjustajV2
         public string Nume { get; set; }
         [MaxLength(100)]
         public string Prenume { get; set; }
-        [MaxLength(100)]
         public bool IsAdmin { get; set; }
-        [MaxLength(100)]
         public bool IsEnable { get; set; }
     }
 }

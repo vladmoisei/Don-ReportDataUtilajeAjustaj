@@ -1,18 +1,56 @@
-﻿@model RaportareAjustajV2.ViewUserModel
+﻿@model RaportareAjustajV2.User
+
 @{
     ViewData["Title"] = "Cuprins";
 }
 
-<h2>Cuprins</h2>
-<h1>Nume Utilizator: @Model.UserName</h1>
-<h1>Id Utilizator: @Model.UserId</h1>
+<h2>Cuprins utilzaje ajustaj</h2>
+<h5>Bine ai venit @Model.Prenume .</h5>
+<h5>Te rog selecteaza utiliajul pentru care doresti sa introduci datele.</h5>
 
-<a>Elti</a>
-<a>Elind</a>
-<a>Fierastraie</a>
-<a>Presa Valdora</a>
-<a>Rullatrice Veche</a>
-<a>Rullatrice Landgraf</a>
-<a>Masina de decojit</a>
-<a>Novaflux</a>
+@if (Model.IsAdmin)
+{
+    @Html.ActionLink(
+    linkText: "Creare utilizator",
+    actionName: "Index",
+    controllerName: "Users",
+    routeValues: new { UserId = Model.UserId,
+        UserName =Model.UserName,
+        Password = Model.Password,
+        Nume = Model.Nume,
+        Prenume = Model.Prenume,
+        IsAdmin = Model.IsAdmin,
+        IsEnable = Model.IsEnable
+    },
+    htmlAttributes: null
+    )
+}
+<div>
+    <a asp-action="Elti" asp-route-id="@Model">Elti</a>
+</div>
+<div>
+    <a asp-action="Elind" asp-route-id="@Model">Elind</a>
+</div>
+<div>
+    <a asp-action="Fierastraie" asp-route-id="@Model">Fierastraie</a>
+</div>
+<div>
+    <a asp-action="PresaValdora" asp-route-id="@Model">Presa Valdora</a>
+</div>
+<div>
+    <a asp-action="RullatriceProjectman" asp-route-id="@Model">Rullatrice Projectman</a>
+</div>
+<div>
+    <a asp-action="RullatriceLandgraf" asp-route-id="@Model">Rullatrice Landgraf</a>
+</div>
+<div>
+    <a asp-action="PellatriceLandgraf" asp-route-id="@Model">Masina de decojit</a>
+</div>
+<div>
+    <a asp-action="NovaFlux" asp-route-id="@Model">Nova Flux</a>
+</div>
 
+
+@functions{
+
+}

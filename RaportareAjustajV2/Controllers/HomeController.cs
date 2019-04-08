@@ -39,7 +39,7 @@ namespace RaportareAjustajV2.Controllers
             }
 
             //return RedirectToAction("Cuprins/" + user.UserName, "Home");
-            return RedirectToAction("Cuprins", "Home", new ViewUserModel(user));
+            return RedirectToAction("Cuprins", "Home", user);
 
 
 
@@ -49,21 +49,26 @@ namespace RaportareAjustajV2.Controllers
         }
 
         //public IActionResult Cuprins(string id)
-        public IActionResult Cuprins(ViewUserModel user)
+        public IActionResult Cuprins(User user)
         {
-            return View(user);
+            if (ModelState.IsValid)
+                //return Content(tilizator.Nume);
+                return View(user);
+            return RedirectToAction("Index", "Home");
             //return Content(user.UserName);
             //string userName = id;
             //if (userName != "") return View(new User { UserName = userName });
-                //return View(userN);
+            //return View(userN);
             //return RedirectToAction("Index")
             //return Content(id);
 
             //return View(id);
             //string userN = UserName;
             //ViewData["Message"] = "Your application description page.";
-;
+            ;
         }
+
+
 
         public IActionResult About()
         {
