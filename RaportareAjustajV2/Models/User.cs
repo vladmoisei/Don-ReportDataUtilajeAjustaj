@@ -11,9 +11,10 @@ namespace RaportareAjustajV2
         Elti,
         Elind,
         Fierastraie,
-        PresaLandgraf,
-        PresaProjectMan,
-        Pelatrice,
+        PresaValdora,
+        RullatriceLandgraf,
+        RullatriceProjectMan,
+        PellatriceLandgraf,
         Novaflux,
         Toate
     }

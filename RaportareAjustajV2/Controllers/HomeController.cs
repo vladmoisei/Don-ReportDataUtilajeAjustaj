@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,15 @@ namespace RaportareAjustajV2.Controllers
                 return View(new UserLogatModel() { ParolaGresita = true });
             }
 
+            HttpContext.Session.SetString("Id", user.UserId.ToString());
+            HttpContext.Session.SetString("UserName", user.UserName);
+            HttpContext.Session.SetString("Nume", user.Nume);
+            HttpContext.Session.SetString("Prenume", user.Prenume);
+            HttpContext.Session.SetString("Utilaj", user.Utilaj.ToString());
+            HttpContext.Session.SetString("IsAdmin", user.IsAdmin.ToString());
+
+            ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
+            //return Content(ViewBag.IsAdmin);
             //return RedirectToAction("Cuprins/" + user.UserName, "Home");
             return RedirectToAction("Cuprins", "Home", user);
 
@@ -51,6 +61,7 @@ namespace RaportareAjustajV2.Controllers
         //public IActionResult Cuprins(string id)
         public IActionResult Cuprins(User user)
         {
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
             if (ModelState.IsValid)
                 //return Content(tilizator.Nume);
                 return View(user);

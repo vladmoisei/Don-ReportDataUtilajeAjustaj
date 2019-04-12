@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Session;
 
 namespace RaportareAjustajV2
 {
@@ -33,10 +34,12 @@ namespace RaportareAjustajV2
             });
 
             services.AddDbContext<RaportareDbContext>(options =>
-            options.UseSqlServer(@"Server=.\WINCCPLUSMIG2014;Database=myTestDataBase;Trusted_Connection=True;"));
+            options.UseSqlServer(@"Server=.\WINCCPLUSMIG2014;Database=myTestDataBase;User Id=sa; Password=Calarasi81;"));
 
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +58,7 @@ namespace RaportareAjustajV2
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 //routes.MapRoute(
