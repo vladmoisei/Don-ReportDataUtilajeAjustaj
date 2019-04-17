@@ -13,6 +13,14 @@ namespace RaportareAjustajV2
         { }
 
         public DbSet<User> Users { get; set; }
-
+        public DbSet<ElindModel> ElindModels { get; set; }
+        public DbSet<ElindModel> EltiModels { get; set; }
+        public DbSet<FierastraieModel> FierastraieModels { get; set; }
+        public DbSet<NovafluxModel> NovafluxModels { get; set; }
+        public DbSet<PellatriceLandgrafModel> PellatriceLandgrafModels { get; set; }
+        public DbSet<PresaValdoraModel> PresaValdoraModels { get; set; }
+        public DbSet<RuillatriceLandgrafModel> RuillatriceLandgrafModels { get; set; }
+        public DbSet<RullatriceProjectManModel> RullatriceProjectManModels { get; set; }
+        
     }
 }

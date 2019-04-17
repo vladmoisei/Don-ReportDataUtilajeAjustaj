@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RaportareAjustajV2.Models
+namespace RaportareAjustajV2
 {
     public class RullatriceProjectManModel
     {

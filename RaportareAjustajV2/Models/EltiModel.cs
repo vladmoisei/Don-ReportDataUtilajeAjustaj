@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaportareAjustajV2
 {
-    public enum TratamentTermic
-    {
-        N,
-        A,
-        FP,
-        SR,
-        QT
-    }
+
     public class EltiModel
     {
 

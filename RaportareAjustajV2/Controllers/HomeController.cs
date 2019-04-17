@@ -39,12 +39,14 @@ namespace RaportareAjustajV2.Controllers
                 return View(new UserLogatModel() { ParolaGresita = true });
             }
 
+            // Salvam data user in session (pentru a utiliza in celelalte view-uri)
             HttpContext.Session.SetString("Id", user.UserId.ToString());
             HttpContext.Session.SetString("UserName", user.UserName);
             HttpContext.Session.SetString("Nume", user.Nume);
             HttpContext.Session.SetString("Prenume", user.Prenume);
             HttpContext.Session.SetString("Utilaj", user.Utilaj.ToString());
             HttpContext.Session.SetString("IsAdmin", user.IsAdmin.ToString());
+            HttpContext.Session.SetString("IsEnable", user.IsEnable.ToString());
 
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
             //return Content(ViewBag.IsAdmin);
@@ -66,17 +68,6 @@ namespace RaportareAjustajV2.Controllers
                 //return Content(tilizator.Nume);
                 return View(user);
             return RedirectToAction("Index", "Home");
-            //return Content(user.UserName);
-            //string userName = id;
-            //if (userName != "") return View(new User { UserName = userName });
-            //return View(userN);
-            //return RedirectToAction("Index")
-            //return Content(id);
-
-            //return View(id);
-            //string userN = UserName;
-            //ViewData["Message"] = "Your application description page.";
-            ;
         }
 
 

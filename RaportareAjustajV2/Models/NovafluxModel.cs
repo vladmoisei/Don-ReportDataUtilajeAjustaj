@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RaportareAjustajV2
 {
-    public class RuillatriceLandgrafModel
+    public class NovafluxModel
     {
-        public int RuillatriceLandgrafModelId { get; set; }
+        public int NovafluxModelId { get; set; }
         [Required]
         [MaxLength(100)]
         public string UserName { get; set; }
@@ -19,8 +19,10 @@ namespace RaportareAjustajV2
         public string Calitate { get; set; }
         [MaxLength(100)]
         public string Sarja { get; set; }
-        public int NrBare { get; set; }
-        public int Lungime { get; set; }
-        public double Masa { get; set; }
+        public double DefectEtalon { get; set; }
+        public int NrBareConform { get; set; }
+        public double MasaConform { get; set; }
+        public int NrBareNeConform { get; set; }
+        public double MasaNeConform { get; set; }
     }
 }

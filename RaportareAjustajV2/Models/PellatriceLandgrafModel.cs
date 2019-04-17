@@ -8,7 +8,7 @@ namespace RaportareAjustajV2
 {
     public class PellatriceLandgrafModel
     {
-        public int RullatriceProjectManModelId { get; set; }
+        public int PellatriceLandgrafModelId { get; set; }
         [Required]
         [MaxLength(100)]
         public string UserName { get; set; }

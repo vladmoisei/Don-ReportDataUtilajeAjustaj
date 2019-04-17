@@ -6,18 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaportareAjustajV2
 {
-    public enum UtilajeAjustaj
-    {
-        Elti,
-        Elind,
-        Fierastraie,
-        PresaValdora,
-        RullatriceLandgraf,
-        RullatriceProjectMan,
-        PellatriceLandgraf,
-        Novaflux,
-        Toate
-    }
+    
     public class User
     {
         public int UserId { get; set; }
