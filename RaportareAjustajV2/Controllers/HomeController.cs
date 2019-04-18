@@ -64,9 +64,25 @@ namespace RaportareAjustajV2.Controllers
         public IActionResult Cuprins(User user)
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            // Dupa Login daca modelul este valid returnam cuprins utilaje
             if (ModelState.IsValid)
                 //return Content(tilizator.Nume);
                 return View(user);
+            // Daca Userul este logat returnam cuprins utilaje
+            if (ViewBag.UserName != null)
+            {
+                return View(new User
+                {
+                    UserName = ViewBag.UserName,
+                    Password = HttpContext.Session.GetString("Password"),
+                    Nume = HttpContext.Session.GetString("Nume"),
+                    Prenume = HttpContext.Session.GetString("Prenume"),
+                    Utilaj = (UtilajeAjustaj)Enum.Parse(typeof(UtilajeAjustaj), HttpContext.Session.GetString("Utilaj")),
+                    IsAdmin = (HttpContext.Session.GetString("IsAdmin") == "True") ? true : false,
+                    IsEnable = (HttpContext.Session.GetString("IsEnable") == "True") ? true : false
+                });
+            }
+            // Dupa login, daca userul nu este valid redirectional la pag login
             return RedirectToAction("Index", "Home");
         }
 

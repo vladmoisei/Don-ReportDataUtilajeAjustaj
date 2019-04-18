@@ -35,3 +35,16 @@ body {
         display: none;
     }
 }
+
+
+/*Added by me*/
+
+.fix-height {
+    height:40px;
+    /*line-height: 2.8;*/
+}
+
+.reduce-padding {
+    padding-left: 6px;
+    padding-right: 6px;
+}

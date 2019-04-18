@@ -1,0 +1,117 @@
+﻿@model RaportareAjustajV2.EltiModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EltiModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataIntroducere)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataIntroducere)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuptor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cuptor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TratamentTermic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TratamentTermic)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Diametru)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Diametru)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calitate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calitate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sarja)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sarja)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumarBare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumarBare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LungimeBare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LungimeBare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Masa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Masa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataIncarcare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataIncarcare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OraIncarcare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OraIncarcare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDescarcare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataDescarcare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OraDescarcare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OraDescarcare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsumGaz)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConsumGaz)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsumElectricitate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConsumElectricitate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EltiModelId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
