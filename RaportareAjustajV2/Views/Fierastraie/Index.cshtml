@@ -1,0 +1,81 @@
+﻿@model IEnumerable<RaportareAjustajV2.FierastraieModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIntroducere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diametru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lungime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Masa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diametru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrBare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lungime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Masa)
+                </td>
+                @if (ViewBag.IsAdmin == "True")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FierastraieModelId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FierastraieModelId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FierastraieModelId">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
