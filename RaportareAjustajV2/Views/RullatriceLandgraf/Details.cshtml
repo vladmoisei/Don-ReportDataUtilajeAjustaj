@@ -1,0 +1,66 @@
+﻿@model RaportareAjustajV2.RuillatriceLandgrafModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RuillatriceLandgrafModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataIntroducere)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataIntroducere)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Diametru)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Diametru)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calitate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calitate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sarja)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sarja)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NrBare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NrBare)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lungime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lungime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Masa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Masa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RuillatriceLandgrafModelId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
