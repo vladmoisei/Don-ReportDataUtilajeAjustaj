@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using RaportareAjustajV2;
 
 namespace RaportareAjustajV2.Controllers
@@ -30,6 +32,64 @@ namespace RaportareAjustajV2.Controllers
                 return View(listaDeAfisat);
             // Daca nu e admin afisam doar datele introduse in ziua curenta
             return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsCurrentDay(CalculeAuxiliar.ReturnareDataFromString(model.DataIntroducere))));
+        }
+
+        // Functie exportare data to excel file
+        public async Task<IActionResult> ExportToExcelAsync()
+        {
+            List<EltiModel> listaDeAfisat = await _context.EltiModels.ToListAsync();
+
+            var stream = new MemoryStream();
+
+            using (var pck = new ExcelPackage(stream))
+            {
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Elti");
+                ws.Cells["A1:Z1"].Style.Font.Bold = true;
+
+                ws.Cells["A1"].Value = "EltiModelId";
+                ws.Cells["B1"].Value = "UserName";
+                ws.Cells["C1"].Value = "Data introducere";
+                ws.Cells["D1"].Value = "Tratament";
+                ws.Cells["E1"].Value = "Diametru";
+                ws.Cells["F1"].Value = "Calitate";
+                ws.Cells["G1"].Value = "Sarja";
+                ws.Cells["H1"].Value = "Nr bare";
+                ws.Cells["I1"].Value = "Lungime";
+                ws.Cells["J1"].Value = "Data Incarcare";
+                ws.Cells["K1"].Value = "Ora Incarcare";
+                ws.Cells["L1"].Value = "Data Descarcare";
+                ws.Cells["M1"].Value = "Ora Descarcare";
+                ws.Cells["N1"].Value = "Consum Gaz";
+                ws.Cells["O1"].Value = "Consum Electricitate";
+
+                int rowStart = 2;
+                foreach (var elem in listaDeAfisat)
+                {
+                    ws.Cells[string.Format("A{0}", rowStart)].Value = elem.EltiModelId;
+                    ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.TratamentTermic;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NumarBare;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.LungimeBare;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.DataIncarcare;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.OraIncarcare;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.DataDescarcare;
+                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.OraDescarcare;
+                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.ConsumGaz;
+                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.ConsumElectricitate;
+                    rowStart++;
+                }
+
+                ws.Cells["A:AZ"].AutoFitColumns();
+
+                pck.Save();
+            }
+            stream.Position = 0;
+            string excelName = "RaportElti.xlsx";
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
 
         // GET: Elti/Details/5

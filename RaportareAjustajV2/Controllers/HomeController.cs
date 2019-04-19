@@ -90,14 +90,14 @@ namespace RaportareAjustajV2.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Note importante";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Pentru suport puteti contacta urmatoarele persoane:";
 
             return View();
         }

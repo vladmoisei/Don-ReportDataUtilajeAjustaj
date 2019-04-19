@@ -9,6 +9,12 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+@if (ViewBag.IsAdmin == "True")
+{
+    <p>
+        <a asp-action="ExportToExcelAsync">Exporta in excel</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>

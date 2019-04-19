@@ -1,7 +1,41 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
+@*<h2>@ViewData["Title"]</h2>*@
+<h2>Descriere</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<h3>Format date de introdus:</h3>
+<p>
+    Tratament termic are fomatul: <strong>N, A, FP, SR, QT</strong>. <br />
+    Nu se poate introduce alt tratament in afara de cele enumerate mai sus.
+</p>
+<p>
+    Data are formatul: <strong>dd/mm/yyyy</strong> (exemplu: 02/03/2019). <br />
+    Daca se introduce in alt format, data nu este valida, iar datele nu vor fi inregistrate.
+</p>
+<p>
+    Ora are formatul: <strong>hh:mm</strong> (exemplu: 13:15).
+    Daca se introduce in alt format, ora nu este valida, iar datele nu vor fi inregistrate.
+</p>
+
+<h3>Introducerea datelor</h3>
+<p>
+    Dupa introducerea datelor in casutele aferente, apasa butonul <strong>"Create"</strong>
+    <br />
+    Daca acestea au fost <strong>valide, vei redirectionat la pagina "Index"</strong>, unde vei putea vizualiza datele introduse.
+    <br />
+    Daca acestea nu au fost valide vei ramane pe aceeasi pagina. Verifica formatul datelor / da refresh la pagina (apasa butonul "F5").
+</p>
+
+<h3>Vizualizare datelor introduse</h3>
+<p>
+    In pagina "Index" vor putea fi vizualizate datele introduse doar pe ziua respectiva. <br />
+    Nu se pot vizualiza datele din zilele precedente.
+</p>
+
+<h3>Editarea datelor</h3>
+<p>
+    Daca ai introdus date gresit si a nevoie sa le modifici, contacteaza seful. <br />
+    Doar el are cont de admin care poate edita datele introduse.
+</p>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RaportareAjustajV2;
 using Microsoft.AspNetCore.Http;
+using OfficeOpenXml;
+using System.IO;
 
 namespace RaportareAjustajV2.Controllers
 {
@@ -30,6 +32,55 @@ namespace RaportareAjustajV2.Controllers
                 return View(listaDeAfisat);
             // Daca nu e admin afisam doar datele introduse in ziua curenta
             return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsCurrentDay(CalculeAuxiliar.ReturnareDataFromString(model.DataIntroducere))));
+        }
+
+        // Functie exportare data to excel file
+        public async Task<IActionResult> ExportToExcelAsync()
+        {
+            List<ElindModel> listaDeAfisat = await _context.ElindModels.ToListAsync();
+
+            var stream = new MemoryStream();
+
+            using (var pck = new ExcelPackage(stream))
+            {
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Elind");
+                ws.Cells["A1:Z1"].Style.Font.Bold = true;
+
+                ws.Cells["A1"].Value = "ElindModelId";
+                ws.Cells["B1"].Value = "UserName";
+                ws.Cells["C1"].Value = "Data introducere";
+                ws.Cells["D1"].Value = "Tratament";
+                ws.Cells["E1"].Value = "Diametru";
+                ws.Cells["F1"].Value = "Calitate";
+                ws.Cells["G1"].Value = "Sarja";
+                ws.Cells["H1"].Value = "Nr bare";
+                ws.Cells["I1"].Value = "Lungime";
+                ws.Cells["J1"].Value = "Masa";
+
+                int rowStart = 2;
+                foreach (var elem in listaDeAfisat)
+                {
+                    ws.Cells[string.Format("A{0}", rowStart)].Value = elem.ElindModelId;
+                    ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.Tratament;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NrBare;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Lungime;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Masa;
+                    rowStart++;
+                }
+
+                ws.Cells["A:AZ"].AutoFitColumns();
+
+                pck.Save();
+            }
+                stream.Position = 0;
+                string excelName = "RaportElind.xlsx";
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+            
         }
 
         // GET: Elind/Details/5

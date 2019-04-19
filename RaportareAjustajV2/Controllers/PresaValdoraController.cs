@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using RaportareAjustajV2;
 
 namespace RaportareAjustajV2.Controllers
@@ -30,6 +32,52 @@ namespace RaportareAjustajV2.Controllers
                 return View(listaDeAfisat);
             // Daca nu e admin afisam doar datele introduse in ziua curenta
             return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsCurrentDay(CalculeAuxiliar.ReturnareDataFromString(model.DataIntroducere))));
+        }
+
+        // Functie exportare data to excel file
+        public async Task<IActionResult> ExportToExcelAsync()
+        {
+            List<PresaValdoraModel> listaDeAfisat = await _context.PresaValdoraModels.ToListAsync();
+
+            var stream = new MemoryStream();
+
+            using (var pck = new ExcelPackage(stream))
+            {
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Presa Valdora");
+                ws.Cells["A1:Z1"].Style.Font.Bold = true;
+
+                ws.Cells["A1"].Value = "PresaValdoraModelId";
+                ws.Cells["B1"].Value = "UserName";
+                ws.Cells["C1"].Value = "Data introducere";
+                ws.Cells["D1"].Value = "Diametru";
+                ws.Cells["E1"].Value = "Calitate";
+                ws.Cells["F1"].Value = "Sarja";
+                ws.Cells["G1"].Value = "Nr bare";
+                ws.Cells["H1"].Value = "Lungime";
+                ws.Cells["I1"].Value = "Masa";
+
+                int rowStart = 2;
+                foreach (var elem in listaDeAfisat)
+                {
+                    ws.Cells[string.Format("A{0}", rowStart)].Value = elem.PresaValdoraModelId;
+                    ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.Diametru;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Calitate;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.NrBare;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.Lungime;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Masa;
+                    rowStart++;
+                }
+
+                ws.Cells["A:AZ"].AutoFitColumns();
+
+                pck.Save();
+            }
+            stream.Position = 0;
+            string excelName = "RaportPresaVladora.xlsx";
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
 
         // GET: PresaValdora/Details/5
