@@ -1,0 +1,76 @@
+﻿@model RaportareAjustajV2.NovafluxModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>NovafluxModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NovafluxModelId" />
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataIntroducere" class="control-label"></label>
+                <input asp-for="DataIntroducere" class="form-control" />
+                <span asp-validation-for="DataIntroducere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diametru" class="control-label"></label>
+                <input asp-for="Diametru" class="form-control" />
+                <span asp-validation-for="Diametru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calitate" class="control-label"></label>
+                <input asp-for="Calitate" class="form-control" />
+                <span asp-validation-for="Calitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sarja" class="control-label"></label>
+                <input asp-for="Sarja" class="form-control" />
+                <span asp-validation-for="Sarja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DefectEtalon" class="control-label"></label>
+                <input asp-for="DefectEtalon" class="form-control" />
+                <span asp-validation-for="DefectEtalon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NrBareConform" class="control-label"></label>
+                <input asp-for="NrBareConform" class="form-control" />
+                <span asp-validation-for="NrBareConform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasaConform" class="control-label"></label>
+                <input asp-for="MasaConform" class="form-control" />
+                <span asp-validation-for="MasaConform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NrBareNeConform" class="control-label"></label>
+                <input asp-for="NrBareNeConform" class="form-control" />
+                <span asp-validation-for="NrBareNeConform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasaNeConform" class="control-label"></label>
+                <input asp-for="MasaNeConform" class="form-control" />
+                <span asp-validation-for="MasaNeConform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

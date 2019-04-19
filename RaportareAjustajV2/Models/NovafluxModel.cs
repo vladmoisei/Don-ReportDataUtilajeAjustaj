@@ -25,9 +25,11 @@ namespace RaportareAjustajV2
         public double DefectEtalon { get; set; }
         [DisplayName("Nr bare Conforme")]
         public int NrBareConform { get; set; }
+        [DisplayName("Masa Conform")]
         public double MasaConform { get; set; }
         [DisplayName("Nr bare neconforme")]
         public int NrBareNeConform { get; set; }
+        [DisplayName("Masa Neconform")]
         public double MasaNeConform { get; set; }
     }
 }
