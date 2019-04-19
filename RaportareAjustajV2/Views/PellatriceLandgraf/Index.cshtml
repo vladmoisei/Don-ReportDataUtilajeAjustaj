@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RaportareAjustajV2.FierastraieModel>
+﻿@model IEnumerable<RaportareAjustajV2.PellatriceLandgrafModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,7 +19,10 @@
                 @Html.DisplayNameFor(model => model.DataIntroducere)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diametru)
+                @Html.DisplayNameFor(model => model.DiametruIntrare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiametruIesire)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Calitate)
@@ -50,7 +53,10 @@
                     @Html.DisplayFor(modelItem => item.DataIntroducere)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Diametru)
+                    @Html.DisplayFor(modelItem => item.DiametruIntrare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiametruIesire)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Calitate)
@@ -70,13 +76,12 @@
                 @if (ViewBag.IsAdmin == "True")
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.FierastraieModelId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.FierastraieModelId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.FierastraieModelId">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.PellatriceLandgrafModelId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PellatriceLandgrafModelId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PellatriceLandgrafModelId">Delete</a>
                     </td>
                 }
             </tr>
         }
     </tbody>
 </table>
-PellatriceLandgrafModels
