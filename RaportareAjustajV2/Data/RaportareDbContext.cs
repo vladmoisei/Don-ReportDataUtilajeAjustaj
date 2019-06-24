@@ -22,6 +22,6 @@ namespace RaportareAjustajV2
         public DbSet<PresaValdoraModel> PresaValdoraModels { get; set; }
         public DbSet<RuillatriceLandgrafModel> RuillatriceLandgrafModels { get; set; }
         public DbSet<RullatriceProjectManModel> RullatriceProjectManModels { get; set; }
-        
+        public DbSet<GaddaModel> GaddaModels { get; set; }
     }
 }

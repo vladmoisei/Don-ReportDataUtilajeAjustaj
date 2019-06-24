@@ -19,6 +19,7 @@ namespace RaportareAjustajV2
         RullatriceProjectMan,
         PellatriceLandgraf,
         Novaflux,
+        Gadda,
         Toate
     }
 

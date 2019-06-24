@@ -1,0 +1,135 @@
+﻿@model IEnumerable<RaportareAjustajV2.GaddaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<h3>Salut @ViewBag.UserName !</h3>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (ViewBag.IsAdmin == "True")
+{
+    <p>
+        <a asp-action="ExportToExcelAsync">Exporta in excel</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIntroducere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cuptor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TratamentTermic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diametru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LungimeBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Masa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIncarcare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OraIncarcare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDescarcare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OraDescarcare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsumGaz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsumElectricitate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cuptor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TratamentTermic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diametru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumarBare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LungimeBare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Masa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIncarcare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OraIncarcare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDescarcare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OraDescarcare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsumGaz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsumElectricitate)
+                </td>
+                @if (ViewBag.IsAdmin == "True")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.GaddaModelId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.GaddaModelId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.GaddaModelId">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
