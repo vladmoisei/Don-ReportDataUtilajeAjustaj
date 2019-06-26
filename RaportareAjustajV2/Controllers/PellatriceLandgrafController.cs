@@ -53,9 +53,10 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["E1"].Value = "Diametru Iesire";
                 ws.Cells["F1"].Value = "Calitate";
                 ws.Cells["G1"].Value = "Sarja";
-                ws.Cells["H1"].Value = "Nr bare";
-                ws.Cells["I1"].Value = "Lungime";
-                ws.Cells["J1"].Value = "Masa";
+                ws.Cells["H1"].Value = "Eticheta";
+                ws.Cells["I1"].Value = "Nr bare";
+                ws.Cells["J1"].Value = "Lungime";
+                ws.Cells["K1"].Value = "Masa";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -67,9 +68,10 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.DiametruIesire;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NrBare;
-                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Lungime;
-                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Masa;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.Eticheta;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.NrBare;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Lungime;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.Masa;
                     rowStart++;
                 }
 
@@ -112,7 +114,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PellatriceLandgrafModelId,UserName,DataIntroducere,DiametruIntrare,DiametruIesire,Calitate,Sarja,NrBare,Lungime,Masa")] PellatriceLandgrafModel pellatriceLandgrafModel)
+        public async Task<IActionResult> Create([Bind("PellatriceLandgrafModelId,UserName,DataIntroducere,DiametruIntrare,DiametruIesire,Calitate,Sarja,Eticheta,NrBare,Lungime,Masa")] PellatriceLandgrafModel pellatriceLandgrafModel)
         {
             if (ModelState.IsValid)
             {
@@ -122,8 +124,10 @@ namespace RaportareAjustajV2.Controllers
                     (int)pellatriceLandgrafModel.DiametruIntrare, pellatriceLandgrafModel.NrBare, pellatriceLandgrafModel.Lungime), 2);
                 _context.Add(pellatriceLandgrafModel);
                 await _context.SaveChangesAsync();
+                ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Eroare conexiune server SQL.";
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
             return View(pellatriceLandgrafModel);
         }
 
@@ -148,7 +152,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PellatriceLandgrafModelId,UserName,DataIntroducere,DiametruIntrare,DiametruIesire,Calitate,Sarja,NrBare,Lungime,Masa")] PellatriceLandgrafModel pellatriceLandgrafModel)
+        public async Task<IActionResult> Edit(int id, [Bind("PellatriceLandgrafModelId,UserName,DataIntroducere,DiametruIntrare,DiametruIesire,Calitate,Sarja,Eticheta,NrBare,Lungime,Masa")] PellatriceLandgrafModel pellatriceLandgrafModel)
         {
             if (id != pellatriceLandgrafModel.PellatriceLandgrafModelId)
             {

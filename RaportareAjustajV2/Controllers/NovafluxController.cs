@@ -127,6 +127,7 @@ namespace RaportareAjustajV2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele.";
             return View(novafluxModel);
         }
 

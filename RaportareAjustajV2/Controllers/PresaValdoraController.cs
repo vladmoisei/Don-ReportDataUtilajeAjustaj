@@ -52,9 +52,10 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["D1"].Value = "Diametru";
                 ws.Cells["E1"].Value = "Calitate";
                 ws.Cells["F1"].Value = "Sarja";
-                ws.Cells["G1"].Value = "Nr bare";
-                ws.Cells["H1"].Value = "Lungime";
-                ws.Cells["I1"].Value = "Masa";
+                ws.Cells["G1"].Value = "Eticheta";
+                ws.Cells["H1"].Value = "Nr bare";
+                ws.Cells["I1"].Value = "Lungime";
+                ws.Cells["J1"].Value = "Masa";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -65,9 +66,10 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("D{0}", rowStart)].Value = elem.Diametru;
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Calitate;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Sarja;
-                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.NrBare;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.Lungime;
-                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Masa;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Eticheta;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NrBare;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Lungime;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Masa;
                     rowStart++;
                 }
 
@@ -110,7 +112,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PresaValdoraModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Lungime,Masa")] PresaValdoraModel presaValdoraModel)
+        public async Task<IActionResult> Create([Bind("PresaValdoraModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,Eticheta,NrBare,Lungime,Masa")] PresaValdoraModel presaValdoraModel)
         {
             if (ModelState.IsValid)
             {
@@ -120,8 +122,10 @@ namespace RaportareAjustajV2.Controllers
                     presaValdoraModel.Diametru, presaValdoraModel.NrBare, presaValdoraModel.Lungime), 2);
                 _context.Add(presaValdoraModel);
                 await _context.SaveChangesAsync();
+                ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Eroare conexiune server SQL.";
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
             return View(presaValdoraModel);
         }
 
@@ -146,7 +150,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PresaValdoraModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Lungime,Masa")] PresaValdoraModel presaValdoraModel)
+        public async Task<IActionResult> Edit(int id, [Bind("PresaValdoraModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,Eticheta,NrBare,Lungime,Masa")] PresaValdoraModel presaValdoraModel)
         {
             if (id != presaValdoraModel.PresaValdoraModelId)
             {

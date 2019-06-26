@@ -24,6 +24,8 @@ namespace RaportareAjustajV2
         public string Calitate { get; set; }
         [MaxLength(100)]
         public string Sarja { get; set; }
+        [MaxLength(100)]
+        public string Eticheta { get; set; }
         [DisplayName("Nr bare")]
         public int NrBare { get; set; }
         public int Lungime { get; set; }
