@@ -14,48 +14,6 @@
     <p>
         <a asp-action="ExportToExcelAsync">Exporta in excel</a>
     </p>
-    <div class="container">
-        <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker6'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-md-5'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker7'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker6').datetimepicker();
-            $('#datetimepicker7').datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-            $("#datetimepicker6").on("dp.change", function (e) {
-                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker7").on("dp.change", function (e) {
-                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-            });
-        });
-    </script>
-
-    <form action="/action_page.php">
-        Birthday (date and time): <input type="datetime-local" name="bdaytime">
-        <input type="submit">
-    </form>
-
 }
 <table class="table">
     <thead>
@@ -71,24 +29,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TratamentTermic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Diametru)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Calitate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sarja)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumarBare)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LungimeBare)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Masa)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataIncarcare)
@@ -108,70 +48,88 @@
             <th>
                 @Html.DisplayNameFor(model => model.ConsumElectricitate)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diametru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LungimeBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Masa)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIntroducere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuptor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TratamentTermic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIncarcare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OraIncarcare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDescarcare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OraDescarcare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsumGaz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsumElectricitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diametru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarBare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LungimeBare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Masa)
+            </td>
+            @if (ViewBag.IsAdmin == "True")
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
+                    <a asp-action="Edit" asp-route-id="@item.GaddaModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.GaddaModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.GaddaModelId">Delete</a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataIntroducere)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cuptor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TratamentTermic)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Diametru)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Calitate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sarja)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumarBare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LungimeBare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Masa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataIncarcare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OraIncarcare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataDescarcare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OraDescarcare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ConsumGaz)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ConsumElectricitate)
-                </td>
-                @if (ViewBag.IsAdmin == "True")
-                {
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.GaddaModelId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.GaddaModelId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.GaddaModelId">Delete</a>
-                    </td>
-                }
-            </tr>
+            }
+        </tr>
         }
     </tbody>
 </table>

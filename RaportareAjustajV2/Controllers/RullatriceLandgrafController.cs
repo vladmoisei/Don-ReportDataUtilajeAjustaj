@@ -120,9 +120,10 @@ namespace RaportareAjustajV2.Controllers
                     ruillatriceLandgrafModel.Diametru, ruillatriceLandgrafModel.NrBare, ruillatriceLandgrafModel.Lungime), 2);
                 _context.Add(ruillatriceLandgrafModel);
                 await _context.SaveChangesAsync();
+                ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Eroare conexiune server SQL.";
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele.";
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
             return View(ruillatriceLandgrafModel);
         }
 

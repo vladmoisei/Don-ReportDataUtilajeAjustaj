@@ -49,18 +49,21 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["A1"].Value = "GaddaModelId";
                 ws.Cells["B1"].Value = "UserName";
                 ws.Cells["C1"].Value = "Data introducere";
-                ws.Cells["D1"].Value = "Tratament";
-                ws.Cells["E1"].Value = "Diametru";
-                ws.Cells["F1"].Value = "Calitate";
-                ws.Cells["G1"].Value = "Sarja";
-                ws.Cells["H1"].Value = "Nr bare";
-                ws.Cells["I1"].Value = "Lungime";
-                ws.Cells["J1"].Value = "Data Incarcare";
-                ws.Cells["K1"].Value = "Ora Incarcare";
-                ws.Cells["L1"].Value = "Data Descarcare";
-                ws.Cells["M1"].Value = "Ora Descarcare";
-                ws.Cells["N1"].Value = "Consum Gaz";
-                ws.Cells["O1"].Value = "Consum Electricitate";
+                ws.Cells["D1"].Value = "Cuptor";
+                ws.Cells["E1"].Value = "Tratament";
+                ws.Cells["F1"].Value = "Data Incarcare";
+                ws.Cells["G1"].Value = "Ora Incarcare";
+                ws.Cells["H1"].Value = "Data Descarcare";
+                ws.Cells["I1"].Value = "Ora Descarcare";
+                ws.Cells["J1"].Value = "Consum Gaz";
+                ws.Cells["K1"].Value = "Consum Electricitate";
+                ws.Cells["L1"].Value = "Diametru";
+                ws.Cells["M1"].Value = "Calitate";
+                ws.Cells["N1"].Value = "Sarja";
+                ws.Cells["O1"].Value = "Nr bare";
+                ws.Cells["P1"].Value = "Lungime";
+                ws.Cells["Q1"].Value = "Masa";
+
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -68,18 +71,20 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("A{0}", rowStart)].Value = elem.GaddaModelId;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
                     ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
-                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.TratamentTermic;
-                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
-                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
-                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NumarBare;
-                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.LungimeBare;
-                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.DataIncarcare;
-                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.OraIncarcare;
-                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.DataDescarcare;
-                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.OraDescarcare;
-                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.ConsumGaz;
-                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.ConsumElectricitate;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.Cuptor;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.TratamentTermic;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.DataIncarcare;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.OraIncarcare;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.DataDescarcare;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.OraDescarcare;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.ConsumGaz;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.ConsumElectricitate;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.Diametru;
+                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.Calitate;
+                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.NumarBare;
+                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.LungimeBare;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.Masa;
                     rowStart++;
                 }
 
@@ -132,9 +137,10 @@ namespace RaportareAjustajV2.Controllers
                     gaddaModel.Diametru, gaddaModel.NumarBare, gaddaModel.LungimeBare), 2);
                 _context.Add(gaddaModel);
                 await _context.SaveChangesAsync();
+                ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Eroare conexiune server SQL.";
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele.";
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
             return View(gaddaModel);
         }
 

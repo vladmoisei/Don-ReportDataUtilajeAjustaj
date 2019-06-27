@@ -125,9 +125,10 @@ namespace RaportareAjustajV2.Controllers
                     novafluxModel.Diametru, novafluxModel.NrBareNeConform, 6), 2);
                 _context.Add(novafluxModel);
                 await _context.SaveChangesAsync();
+                ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Eroare conexiune server SQL.";
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele.";
+            ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
             return View(novafluxModel);
         }
 
