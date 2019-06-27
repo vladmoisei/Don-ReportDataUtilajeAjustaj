@@ -11,8 +11,15 @@
 </p>
 @if (ViewBag.IsAdmin == "True")
 {
+    <div>
+        <p>Selectare perioada raportare in excel</p>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" name="to">
+    </div>
     <p>
-        <a asp-action="ExportToExcelAsync">Exporta in excel</a>
+        <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
     </p>
 }
 <table class="table">
@@ -54,46 +61,55 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataIntroducere)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiametruIntrare)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiametruIesire)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calitate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sarja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Eticheta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NrBare)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lungime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Masa)
-            </td>
-            @if (ViewBag.IsAdmin == "True")
-            {
+            <tr>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.PellatriceLandgrafModelId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PellatriceLandgrafModelId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PellatriceLandgrafModelId">Delete</a>
+                    @Html.DisplayFor(modelItem => item.UserName)
                 </td>
-            }
-        </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiametruIntrare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiametruIesire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eticheta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrBare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lungime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Masa)
+                </td>
+                @if (ViewBag.IsAdmin == "True")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PellatriceLandgrafModelId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PellatriceLandgrafModelId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PellatriceLandgrafModelId">Delete</a>
+                    </td>
+                }
+            </tr>
         }
     </tbody>
 </table>
+
+@*Section for UI Datepicker from Jquery*@
+@section JQueryUI {
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/datepickerJquery.js"></script>
+}

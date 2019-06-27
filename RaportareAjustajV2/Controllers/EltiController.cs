@@ -35,8 +35,9 @@ namespace RaportareAjustajV2.Controllers
         }
 
         // Functie exportare data to excel file
-        public async Task<IActionResult> ExportToExcelAsync()
+        public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
+            return Content(dataFrom + "<==>" + dataTo);
             List<EltiModel> listaDeAfisat = await _context.EltiModels.ToListAsync();
 
             var stream = new MemoryStream();
@@ -85,7 +86,7 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("O{0}", rowStart)].Value = elem.NumarBare;
                     ws.Cells[string.Format("P{0}", rowStart)].Value = elem.LungimeBare;
                     ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.Masa;
-                    rowStart++;
+                    rowStart++;                    
                 }
 
                 ws.Cells["A:AZ"].AutoFitColumns();

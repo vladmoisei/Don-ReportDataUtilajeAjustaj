@@ -11,8 +11,15 @@
 </p>
 @if (ViewBag.IsAdmin == "True")
 {
+    <div>
+        <p>Selectare perioada raportare in excel</p>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" name="to">
+    </div>
     <p>
-        <a asp-action="ExportToExcelAsync">Exporta in excel</a>
+        <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
     </p>
 }
 <table class="table">
@@ -97,3 +104,12 @@
         }
     </tbody>
 </table>
+
+@*Section for UI Datepicker from Jquery*@
+@section JQueryUI {
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/datepickerJquery.js"></script>
+}

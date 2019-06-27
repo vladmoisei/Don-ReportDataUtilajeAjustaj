@@ -35,8 +35,9 @@ namespace RaportareAjustajV2.Controllers
         }
 
         // Functie exportare data to excel file
-        public async Task<IActionResult> ExportToExcelAsync()
+        public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
+            return Content(dataFrom + "<==>" + dataTo);
             List<PellatriceLandgrafModel> listaDeAfisat = await _context.PellatriceLandgrafModels.ToListAsync();
 
             var stream = new MemoryStream();

@@ -35,8 +35,9 @@ namespace RaportareAjustajV2.Controllers
         }
 
         // Functie exportare data to excel file
-        public async Task<IActionResult> ExportToExcelAsync()
+        public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
+            return Content(dataFrom + "<==>" + dataTo);
             List<FierastraieModel> listaDeAfisat = await _context.FierastraieModels.ToListAsync();
 
             var stream = new MemoryStream();
