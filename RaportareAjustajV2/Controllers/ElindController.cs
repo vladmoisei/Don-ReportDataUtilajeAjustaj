@@ -37,8 +37,10 @@ namespace RaportareAjustajV2.Controllers
         // Functie exportare data to excel file
         public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
-            return Content(dataFrom + "<==>" + dataTo);
-            List<ElindModel> listaDeAfisat = await _context.ElindModels.ToListAsync();
+            //return Content(dataFrom + "<==>" + dataTo);
+            List<ElindModel> listaSql = await _context.ElindModels.ToListAsync();
+            // Extrage datele cuprinse intre limitele date de operator
+            IEnumerable<ElindModel> listaDeAfisat = listaSql.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere, dataFrom, dataTo));
 
             var stream = new MemoryStream();
 

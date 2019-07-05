@@ -37,8 +37,10 @@ namespace RaportareAjustajV2.Controllers
         // Functie exportare data to excel file
         public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
-            return Content(dataFrom + "<==>" + dataTo);
-            List<NovafluxModel> listaDeAfisat = await _context.NovafluxModels.ToListAsync();
+            //return Content(dataFrom + "<==>" + dataTo);
+            List<NovafluxModel> listaSql = await _context.NovafluxModels.ToListAsync();
+            // Extrage datele cuprinse intre limitele date de operator
+            IEnumerable<NovafluxModel> listaDeAfisat = listaSql.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere, dataFrom, dataTo));
 
             var stream = new MemoryStream();
 

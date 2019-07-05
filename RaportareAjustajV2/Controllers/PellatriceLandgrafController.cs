@@ -37,8 +37,10 @@ namespace RaportareAjustajV2.Controllers
         // Functie exportare data to excel file
         public async Task<IActionResult> ExportToExcelAsync(string dataFrom, string dataTo)
         {
-            return Content(dataFrom + "<==>" + dataTo);
-            List<PellatriceLandgrafModel> listaDeAfisat = await _context.PellatriceLandgrafModels.ToListAsync();
+            //return Content(dataFrom + "<==>" + dataTo);
+            List<PellatriceLandgrafModel> listaSql = await _context.PellatriceLandgrafModels.ToListAsync();
+            // Extrage datele cuprinse intre limitele date de operator
+            IEnumerable<PellatriceLandgrafModel> listaDeAfisat = listaSql.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere, dataFrom, dataTo));
 
             var stream = new MemoryStream();
 
