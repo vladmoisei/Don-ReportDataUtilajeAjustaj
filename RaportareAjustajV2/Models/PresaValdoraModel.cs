@@ -16,6 +16,8 @@ namespace RaportareAjustajV2
         [MaxLength(100)]
         [DisplayName("Data Introducere")]
         public string DataIntroducere { get; set; }
+        [DisplayName("Data indreptare material")]
+        public string DataIndreptareMaterial { get; set; }
         public int Diametru { get; set; }
         [MaxLength(100)]
         public string Calitate { get; set; }

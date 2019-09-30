@@ -32,6 +32,9 @@
                 @Html.DisplayNameFor(model => model.DataIntroducere)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DataIndreptareMaterial)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Diametru)
             </th>
             <th>
@@ -58,43 +61,46 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIntroducere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIndreptareMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diametru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eticheta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrBare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lungime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Masa)
+            </td>
+            @if (ViewBag.IsAdmin == "True")
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
+                    <a asp-action="Edit" asp-route-id="@item.PresaValdoraModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PresaValdoraModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PresaValdoraModelId">Delete</a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataIntroducere)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Diametru)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Calitate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sarja)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Eticheta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NrBare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Lungime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Masa)
-                </td>
-                @if (ViewBag.IsAdmin == "True")
-                {
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.PresaValdoraModelId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PresaValdoraModelId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PresaValdoraModelId">Delete</a>
-                    </td>
-                }
-            </tr>
+            }
+        </tr>
         }
     </tbody>
 </table>
