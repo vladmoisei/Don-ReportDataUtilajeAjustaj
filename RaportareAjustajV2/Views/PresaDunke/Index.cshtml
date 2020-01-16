@@ -1,0 +1,115 @@
+﻿@model IEnumerable<RaportareAjustajV2.PresaDunkeModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<h3>Salut @ViewBag.UserName !</h3>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (ViewBag.IsAdmin == "True")
+{
+    <div>
+        <p>Selectare perioada raportare in excel</p>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" name="to">
+    </div>
+    <p>
+        <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIntroducere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIndreptareMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diametru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eticheta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrBare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lungime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Masa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIndreptareMaterial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diametru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eticheta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrBare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lungime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Masa)
+                </td>
+                @if (ViewBag.IsAdmin == "True")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PresaDunkeModelId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PresaDunkeModelId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PresaDunkeModelId">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*Section for UI Datepicker from Jquery*@
+@section JQueryUI {
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/datepickerJquery.js"></script>
+}

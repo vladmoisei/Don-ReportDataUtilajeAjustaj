@@ -20,7 +20,8 @@ namespace RaportareAjustajV2
         PellatriceLandgraf,
         Novaflux,
         Gadda,
-        Toate
+        Toate,
+        PresaDunke
     }
 
     public enum TratamentTermic
