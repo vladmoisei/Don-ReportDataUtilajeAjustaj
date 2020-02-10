@@ -132,6 +132,7 @@ namespace RaportareAjustajV2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
+            @ViewBag.UserName = novafluxModel.UserName;
             return View(novafluxModel);
         }
 
