@@ -1,0 +1,160 @@
+﻿@model IEnumerable<RaportareAjustajV2.UsBlumModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<h3>Salut @ViewBag.UserName !</h3>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (ViewBag.IsAdmin == "True")
+{
+    <div>
+        <p>Selectare perioada raportare in excel</p>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" name="to">
+    </div>
+    <p>
+        <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIntroducere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataControl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormatBlum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Furnizor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CalitateOtel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FiProgramat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fir1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blum1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarimeDefect1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fir2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blum2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarimeDefect2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fir3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blum3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarimeDefect3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observatii)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataControl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormatBlum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Furnizor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CalitateOtel.Valoare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FiProgramat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observatii)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UsBlumModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.UsBlumModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.UsBlumModelId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*Section for UI Datepicker from Jquery*@
+@section JQueryUI {
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/datepickerJquery.js"></script>
+}

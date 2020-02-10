@@ -1,0 +1,116 @@
+﻿@model RaportareAjustajV2.UsBlumModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>UsBlumModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UsBlumModelId" />
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataIntroducere" class="control-label"></label>
+                <input asp-for="DataIntroducere" class="form-control" />
+                <span asp-validation-for="DataIntroducere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataControl" class="control-label"></label>
+                <input asp-for="DataControl" class="form-control" />
+                <span asp-validation-for="DataControl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sarja" class="control-label"></label>
+                <input asp-for="Sarja" class="form-control" />
+                <span asp-validation-for="Sarja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FormatBlum" class="control-label"></label>
+                <input asp-for="FormatBlum" class="form-control" />
+                <span asp-validation-for="FormatBlum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Furnizor" class="control-label"></label>
+                <select asp-for="Furnizor" class="form-control" asp-items="Html.GetEnumSelectList<Furnizor>()"></select>
+                <span asp-validation-for="Furnizor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalitateOtelModelId" class="control-label"></label>
+                <select asp-for="CalitateOtelModelId" class="form-control" asp-items="ViewBag.CalitateOtelModelId"></select>
+                <span asp-validation-for="CalitateOtelModelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiProgramat" class="control-label"></label>
+                <input asp-for="FiProgramat" class="form-control" />
+                <span asp-validation-for="FiProgramat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fir1" class="control-label"></label>
+                <input asp-for="Fir1" class="form-control" />
+                <span asp-validation-for="Fir1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blum1" class="control-label"></label>
+                <input asp-for="Blum1" class="form-control" />
+                <span asp-validation-for="Blum1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect1" class="control-label"></label>
+                <input asp-for="MarimeDefect1" class="form-control" />
+                <span asp-validation-for="MarimeDefect1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fir2" class="control-label"></label>
+                <input asp-for="Fir2" class="form-control" />
+                <span asp-validation-for="Fir2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blum2" class="control-label"></label>
+                <input asp-for="Blum2" class="form-control" />
+                <span asp-validation-for="Blum2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect2" class="control-label"></label>
+                <input asp-for="MarimeDefect2" class="form-control" />
+                <span asp-validation-for="MarimeDefect2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fir3" class="control-label"></label>
+                <input asp-for="Fir3" class="form-control" />
+                <span asp-validation-for="Fir3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blum3" class="control-label"></label>
+                <input asp-for="Blum3" class="form-control" />
+                <span asp-validation-for="Blum3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect3" class="control-label"></label>
+                <input asp-for="MarimeDefect3" class="form-control" />
+                <span asp-validation-for="MarimeDefect3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observatii" class="control-label"></label>
+                <input asp-for="Observatii" class="form-control" />
+                <span asp-validation-for="Observatii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

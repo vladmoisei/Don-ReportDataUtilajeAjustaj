@@ -106,7 +106,6 @@ namespace RaportareAjustajV2.Controllers
             stream.Position = 0;
             string excelName = "RaportUsBars.xlsx";
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
-
         }
 
         // GET: UsBar/Details/5
@@ -147,7 +146,6 @@ namespace RaportareAjustajV2.Controllers
             {
                 usBarModel.DataIntroducere = DateTime.Now;
                 
-                
                 _context.Add(usBarModel);
                 await _context.SaveChangesAsync();
 
@@ -156,6 +154,7 @@ namespace RaportareAjustajV2.Controllers
             }
             ViewData["CalitateOtelModelId"] = new SelectList(_context.CalitateOtelModels, "CalitateOtelModelId", "Valoare", usBarModel.CalitateOtelModelId);
             ViewBag.Mesaj = "Atentie! Nu s-au introdus datele. Datele nu sunt valide.";
+            @ViewBag.UserName = usBarModel.UserName;
             return View(usBarModel);
         }
 

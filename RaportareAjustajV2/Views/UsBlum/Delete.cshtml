@@ -1,0 +1,129 @@
+﻿@model RaportareAjustajV2.UsBlumModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UsBlumModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataIntroducere)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataIntroducere)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataControl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataControl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sarja)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sarja)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FormatBlum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FormatBlum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Furnizor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Furnizor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CalitateOtel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CalitateOtel.CalitateOtelModelId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FiProgramat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FiProgramat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fir1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fir1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Blum1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Blum1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fir2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fir2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Blum2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Blum2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fir3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fir3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Blum3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Blum3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observatii)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="UsBlumModelId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

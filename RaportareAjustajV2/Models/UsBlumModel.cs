@@ -30,10 +30,13 @@ namespace RaportareAjustajV2
 
         [Required]
         [MaxLength(100)]
+        [DisplayName("Format Blum")]
         public string FormatBlum { get; set; }
 
+        [Required]
         public Furnizor Furnizor { get; set; }
 
+        [DisplayName("Calitate Otel")]
         public int CalitateOtelModelId { get; set; }
 
         [DisplayName("Calitate Otel")]
@@ -43,25 +46,31 @@ namespace RaportareAjustajV2
         [DisplayName("Ø programat")]
         public string FiProgramat { get; set; }
 
+        [DisplayName("Fir 1")]
         public int Fir1 { get; set; }
 
+        [DisplayName("Blum 1")]
         public int Blum1 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
+        [DisplayName("Marime defect 1")]
         public double MarimeDefect1 { get; set; }
 
+        [DisplayName("Fir 2")]
         public int Fir2 { get; set; }
 
+        [DisplayName("Blum 2")]
         public int Blum2 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
+        [DisplayName("Marime defect 2")]
         public double MarimeDefect2 { get; set; }
 
+        [DisplayName("Fir 3")]
         public int Fir3 { get; set; }
 
+        [DisplayName("Blum 3")]
         public int Blum3 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
+        [DisplayName("Marime defect 3")]
         public double MarimeDefect3 { get; set; }
 
         [MaxLength(250)]
