@@ -33,4 +33,52 @@ namespace RaportareAjustajV2
         QT
     }
 
+    public enum Furnizor
+    {
+        VA,
+        TK,
+        SW,
+        SH,
+        FG,
+        RE,
+        AM,
+        BD,
+        BE,
+        BM,
+        BT,
+        CA,
+        CR,
+        DP,
+        EZ,
+        FB,
+        FV,
+        LT,
+        LU,
+        ME,
+        MI,
+        NP,
+        PO,
+        PS,
+        RO,
+        SK,
+        TE,
+        CK
+    }
+
+    public enum StareMaterial
+    {
+        L,
+        IQT,
+        DQT,
+        T
+    }
+
+    public enum TipDiscontinuitate
+    {
+        DCE,
+        DCP,
+        DCG,
+        PC
+    }
+
 }
