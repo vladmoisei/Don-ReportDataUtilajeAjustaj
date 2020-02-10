@@ -17,11 +17,11 @@ namespace RaportareAjustajV2
         public string UserName { get; set; }
 
         [Display(Name = "Data Introducere"), DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataIntroducere { get; set; }
 
         [Display(Name = "Data Control"), DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataControl { get; set; }
 
         public int Diametru { get; set; }
@@ -32,43 +32,42 @@ namespace RaportareAjustajV2
         [MaxLength(100)]
         public string Sarja { get; set; }
 
+        [DisplayName("Calitate Otel")]
         public int CalitateOtelModelId { get; set; }
 
         [DisplayName("Calitate Otel")]
         public virtual CalitateOtelModel CalitateOtel { get; set; }
 
-        [MaxLength(100)]
         [DisplayName("Stare Material")]
         public StareMaterial StareMaterial { get; set; }
 
+        [DisplayName("Clasa 3")]
         public int Clasa3 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
-        [DisplayName("Marime Defect[mm]")]
+        [DisplayName("Marime Defect 3 [mm]")]
         public double MarimeDefect3 { get; set; }
 
+        [DisplayName("Clasa 2")]
         public int Clasa2 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
-        [DisplayName("Marime Defect[mm]")]
+        [DisplayName("Marime Defect 2 [mm]")]
         public double MarimeDefect2 { get; set; }
 
+        [DisplayName("Clasa 2+")]
         public int Clasa2Plus { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
-        [DisplayName("Marime Defect[mm]")]
+        [DisplayName("Marime Defect 2+ [mm]")]
         public double MarimeDefect2Plus { get; set; }
 
+        [DisplayName("Clasa 1")]
         public int Clasa1 { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
-        [DisplayName("Marime Defect[mm]")]
+        [DisplayName("Marime Defect 1 [mm]")]
         public double MarimeDefect1 { get; set; }
 
         public int SS { get; set; }
 
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Nr invalid, pune punct!")]
-        [DisplayName("Marime Defect[mm]")]
+        [DisplayName("Marime Defect SS [mm]")]
         public double MarimeDefectSS { get; set; }
 
         [DisplayName("Tip Discontinuitate")]

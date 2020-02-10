@@ -1,0 +1,126 @@
+﻿@model RaportareAjustajV2.UsBarModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>UsBarModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UsBarModelId" />
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataIntroducere" class="control-label"></label>
+                <input asp-for="DataIntroducere" class="form-control" />
+                <span asp-validation-for="DataIntroducere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataControl" class="control-label"></label>
+                <input asp-for="DataControl" class="form-control" />
+                <span asp-validation-for="DataControl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diametru" class="control-label"></label>
+                <input asp-for="Diametru" class="form-control" />
+                <span asp-validation-for="Diametru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Furnizor" class="control-label"></label>
+                <select asp-for="Furnizor" class="form-control" asp-items="Html.GetEnumSelectList<Furnizor>()"></select>
+                <span asp-validation-for="Furnizor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sarja" class="control-label"></label>
+                <input asp-for="Sarja" class="form-control" />
+                <span asp-validation-for="Sarja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalitateOtelModelId" class="control-label"></label>
+                <select asp-for="CalitateOtelModelId" class="form-control" asp-items="ViewBag.CalitateOtelModelId"></select>
+                <span asp-validation-for="CalitateOtelModelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StareMaterial" class="control-label"></label>
+                <select asp-for="StareMaterial" class="form-control" asp-items="Html.GetEnumSelectList<StareMaterial>()"></select>
+                <span asp-validation-for="StareMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clasa3" class="control-label"></label>
+                <input asp-for="Clasa3" class="form-control" />
+                <span asp-validation-for="Clasa3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect3" class="control-label"></label>
+                <input asp-for="MarimeDefect3" class="form-control" />
+                <span asp-validation-for="MarimeDefect3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clasa2" class="control-label"></label>
+                <input asp-for="Clasa2" class="form-control" />
+                <span asp-validation-for="Clasa2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect2" class="control-label"></label>
+                <input asp-for="MarimeDefect2" class="form-control" />
+                <span asp-validation-for="MarimeDefect2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clasa2Plus" class="control-label"></label>
+                <input asp-for="Clasa2Plus" class="form-control" />
+                <span asp-validation-for="Clasa2Plus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect2Plus" class="control-label"></label>
+                <input asp-for="MarimeDefect2Plus" class="form-control" />
+                <span asp-validation-for="MarimeDefect2Plus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clasa1" class="control-label"></label>
+                <input asp-for="Clasa1" class="form-control" />
+                <span asp-validation-for="Clasa1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefect1" class="control-label"></label>
+                <input asp-for="MarimeDefect1" class="form-control" />
+                <span asp-validation-for="MarimeDefect1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SS" class="control-label"></label>
+                <input asp-for="SS" class="form-control" />
+                <span asp-validation-for="SS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarimeDefectSS" class="control-label"></label>
+                <input asp-for="MarimeDefectSS" class="form-control" />
+                <span asp-validation-for="MarimeDefectSS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipDiscontinuitate" class="control-label"></label>
+                <select asp-for="TipDiscontinuitate" class="form-control" asp-items="Html.GetEnumSelectList<TipDiscontinuitate>()"></select>
+                <span asp-validation-for="TipDiscontinuitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observatii" class="control-label"></label>
+                <input asp-for="Observatii" class="form-control" />
+                <span asp-validation-for="Observatii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

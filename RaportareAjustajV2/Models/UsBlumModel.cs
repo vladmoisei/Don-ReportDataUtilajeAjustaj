@@ -17,11 +17,11 @@ namespace RaportareAjustajV2
         public string UserName { get; set; }
 
         [Display(Name = "Data Introducere"), DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataIntroducere { get; set; }
 
         [Display(Name = "Data Control"), DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataControl { get; set; }
 
         [Required]

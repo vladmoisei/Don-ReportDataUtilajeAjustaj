@@ -1,0 +1,138 @@
+﻿@model RaportareAjustajV2.UsBarModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UsBarModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataIntroducere)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataIntroducere)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataControl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataControl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Diametru)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Diametru)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Furnizor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Furnizor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sarja)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sarja)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CalitateOtel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CalitateOtel.CalitateOtelModelId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StareMaterial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StareMaterial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasa3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clasa3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasa2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clasa2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasa2Plus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clasa2Plus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect2Plus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect2Plus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clasa1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clasa1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefect1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefect1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarimeDefectSS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarimeDefectSS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipDiscontinuitate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipDiscontinuitate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observatii)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observatii)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UsBarModelId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

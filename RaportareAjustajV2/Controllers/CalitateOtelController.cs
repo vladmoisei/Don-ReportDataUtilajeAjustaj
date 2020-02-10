@@ -9,11 +9,11 @@ using RaportareAjustajV2;
 
 namespace RaportareAjustajV2.Controllers
 {
-    public class CalitateOtelModelsController : Controller
+    public class CalitateOtelController : Controller
     {
         private readonly RaportareDbContext _context;
 
-        public CalitateOtelModelsController(RaportareDbContext context)
+        public CalitateOtelController(RaportareDbContext context)
         {
             _context = context;
         }

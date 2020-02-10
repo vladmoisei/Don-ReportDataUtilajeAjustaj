@@ -21,7 +21,10 @@ namespace RaportareAjustajV2
         Novaflux,
         Gadda,
         Toate,
-        PresaDunke
+        PresaDunke,
+        UsBar,
+        UsBlum,
+        CalitateOtel
     }
 
     public enum TratamentTermic
