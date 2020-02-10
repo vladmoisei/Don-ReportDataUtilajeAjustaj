@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RaportareAjustajV2;
+using RaportareAjustajV2.Models;
 
 namespace RaportareAjustajV2
 {
@@ -24,5 +25,8 @@ namespace RaportareAjustajV2
         public DbSet<RullatriceProjectManModel> RullatriceProjectManModels { get; set; }
         public DbSet<GaddaModel> GaddaModels { get; set; }
         public DbSet<PresaDunkeModel> PresaDunkeModels { get; set; }
+        public DbSet<CalitateOtelModel> CalitateOtelModels { get; set; }
+        public DbSet<UsBlumModel> UsBlumModels { get; set; }
+        public DbSet<UsBarModel> UsBarModels { get; set; }
     }
 }
