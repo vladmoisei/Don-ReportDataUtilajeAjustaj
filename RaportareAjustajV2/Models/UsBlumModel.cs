@@ -73,6 +73,15 @@ namespace RaportareAjustajV2
         [DisplayName("Marime defect 3")]
         public double MarimeDefect3 { get; set; }
 
+        [DisplayName("Fir 4")]
+        public int Fir4 { get; set; }
+
+        [DisplayName("Blum 4")]
+        public int Blum4 { get; set; }
+
+        [DisplayName("Marime defect 4")]
+        public double MarimeDefect4 { get; set; }
+
         [MaxLength(250)]
         public string Observatii { get; set; }
     }

@@ -66,11 +66,11 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["N1"].Value = "Clasa 2+";
                 ws.Cells["O1"].Value = "Marime Defect [mm]";
                 ws.Cells["P1"].Value = "Clasa 1";
-                ws.Cells["R1"].Value = "Marime Defect [mm]";
-                ws.Cells["S1"].Value = "Clasa SS";
-                ws.Cells["T1"].Value = "Marime Defect [mm]";
-                ws.Cells["U1"].Value = "Tip Discontinuitate";
-                ws.Cells["V1"].Value = "Observatii";
+                ws.Cells["Q1"].Value = "Marime Defect [mm]";
+                ws.Cells["R1"].Value = "Clasa SS";
+                ws.Cells["S1"].Value = "Marime Defect [mm]";
+                ws.Cells["T1"].Value = "Tip Discontinuitate";
+                ws.Cells["U1"].Value = "Observatii";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -91,11 +91,11 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Clasa2Plus;
                     ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2Plus;
                     ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Clasa1;
-                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.MarimeDefect1;
-                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.SS;
-                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.MarimeDefectSS;
-                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.TipDiscontinuitate;
-                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.MarimeDefect1;
+                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.SS;
+                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefectSS;
+                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.TipDiscontinuitate;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Observatii;
                     rowStart++;
                 }
 

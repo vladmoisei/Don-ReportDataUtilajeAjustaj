@@ -66,10 +66,13 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["M1"].Value = "Fir 2";
                 ws.Cells["N1"].Value = "Blum 2";
                 ws.Cells["O1"].Value = "Marime defect 2";
-                ws.Cells["P1"].Value = "Fir 3";
-                ws.Cells["R1"].Value = "Blum 3";
-                ws.Cells["S1"].Value = "Marime defect 3";
-                ws.Cells["T1"].Value = "Observatii";
+                ws.Cells["Q1"].Value = "Fir 3";
+                ws.Cells["P1"].Value = "Blum 3";
+                ws.Cells["R1"].Value = "Marime defect 3";
+                ws.Cells["S1"].Value = "Fir 4";
+                ws.Cells["T1"].Value = "Blum 4";
+                ws.Cells["U1"].Value = "Marime defect 4";
+                ws.Cells["V1"].Value = "Observatii";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -90,9 +93,12 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Blum2;
                     ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2;
                     ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Fir3;
-                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.Blum3;
-                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefect3;
-                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.Blum3;
+                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.MarimeDefect3;
+                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.Fir4;
+                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.Blum4;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.MarimeDefect4;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Observatii;
 
                     rowStart++;
                 }
