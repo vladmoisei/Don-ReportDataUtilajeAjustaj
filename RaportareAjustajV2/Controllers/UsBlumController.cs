@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,172 @@ namespace RaportareAjustajV2.Controllers
 
             // Daca nu e admin afisam doar datele introduse in ziua curenta
             return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsCurrentDay(model.DataIntroducere)));
+        }
+        // Functie Send Email monthly with Consumption for all month
+        public void SendEmailWithFile(string adreseMailDeTrimis, string subiectText, string bodyText, string filePathDeTrimisCuptor)
+        {
+            try
+            {
+                // "don.rap.ajustaj@gmail.com", "v.moisei@beltrame-group.com, vladmoisei@yahoo.com"
+                // Mail(emailFrom , emailTo)
+                MailMessage mail = new MailMessage("don.rap.ajustaj@gmail.com", adreseMailDeTrimis);
+
+                //mail.From = new MailAddress("don.rap.ajustaj@gmail.com");
+                mail.Subject = subiectText;
+                string Body = string.Format("Buna ziua. <br>Atasat gasiti consumul de gaz inregistrat de contor gaz " +
+                    "cuptor cu propuslie pe luna {0}. <br>O zi buna.", DateTime.Now.AddMonths(-1).ToString("MMMM, yyyy"));
+                mail.Body = bodyText;
+                mail.IsBodyHtml = true;
+                using (Attachment attachmentCuptor = new Attachment(filePathDeTrimisCuptor))
+                {
+                    mail.Attachments.Add(attachmentCuptor);
+
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com"; //Or Your SMTP Server Address
+                    smtp.Credentials = new System.Net.NetworkCredential("don.rap.ajustaj@gmail.com", "Beltrame.1");
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+
+                    mail = null;
+                    smtp = null;
+                }
+
+                // Console.WriteLine("Mail Sent succesfully");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                // Console.WriteLine(ex.ToString());
+                //throw ex;
+            }
+        }
+
+        /*
+         * Functii creare folder si salvare fisiere exvcel cu consumul lunar
+         */
+        // Creare folder stocare fisiere consum gaz
+        public string CreareFolderRaportare(string numeUtilaj)
+        {
+            // Daca pui direct folderul de exp. Consum ... se salveaza in folderul radacina al proiectului
+            string path = string.Format(@"c:\RaportareAjustaj/{0}", numeUtilaj);
+            try
+            {
+                // Determine whether the directory exists.
+                if (Directory.Exists(path))
+                {
+                    // Console.WriteLine("That path exists already.");
+                    return path;
+                }
+
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(path);
+                // Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+
+                // Delete the directory.
+                //di.Delete();
+                //Console.WriteLine("The directory was deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("The process failed: {0}", e.ToString());
+                //MessageBox.Show(ex.Message);
+                //throw ex;
+            }
+
+            return path;
+        }
+
+        // Functie creare fisier excel cu consumul lunar
+        // Functie exportare data to excel file and save to disk
+        // returneaza FilePath
+        public string SaveExcelFileToDisk(string dataFrom, string dataTo, RaportareDbContext _context)
+        {
+            //return Content(dataFrom + "<==>" + dataTo);
+            List<UsBlumModel> listaSql = _context.UsBlumModels.Include(u => u.CalitateOtel).ToList();
+            // Extrage datele cuprinse intre limitele date de operator
+            IEnumerable<UsBlumModel> listaDeAfisat = listaSql.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere.ToString("dd/MM/yyyy HH:mm"), dataFrom, dataTo));
+
+            var stream = new MemoryStream();
+
+            using (var pck = new ExcelPackage(stream))
+            {
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("UsBBlums");
+                ws.Cells["A1:Z1"].Style.Font.Bold = true;
+
+                ws.Cells["A1"].Value = "UsBlumModelId";
+                ws.Cells["B1"].Value = "User Name";
+                ws.Cells["C1"].Value = "Data introducere";
+                ws.Cells["D1"].Value = "Data Control";
+                ws.Cells["E1"].Value = "Sarja";
+                ws.Cells["F1"].Value = "Format Blum";
+                ws.Cells["G1"].Value = "Furnizor";
+                ws.Cells["H1"].Value = "Calitate Otel";
+                ws.Cells["I1"].Value = "Ø programat";
+                ws.Cells["J1"].Value = "Fir 1";
+                ws.Cells["K1"].Value = "Blum 1";
+                ws.Cells["L1"].Value = "Marime defect 1";
+                ws.Cells["M1"].Value = "Fir 2";
+                ws.Cells["N1"].Value = "Blum 2";
+                ws.Cells["O1"].Value = "Marime defect 2";
+                ws.Cells["Q1"].Value = "Fir 3";
+                ws.Cells["P1"].Value = "Blum 3";
+                ws.Cells["R1"].Value = "Marime defect 3";
+                ws.Cells["S1"].Value = "Fir 4";
+                ws.Cells["T1"].Value = "Blum 4";
+                ws.Cells["U1"].Value = "Marime defect 4";
+                ws.Cells["V1"].Value = "Observatii";
+
+                int rowStart = 2;
+                foreach (var elem in listaDeAfisat)
+                {
+                    ws.Cells[string.Format("A{0}", rowStart)].Value = elem.UsBlumModelId;
+                    ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.FormatBlum;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Furnizor;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.CalitateOtel.Valoare;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.FiProgramat;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Fir1;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.Blum1;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.MarimeDefect1;
+                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.Fir2;
+                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Blum2;
+                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2;
+                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Fir3;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.Blum3;
+                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.MarimeDefect3;
+                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.Fir4;
+                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.Blum4;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.MarimeDefect4;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Observatii;
+
+                    rowStart++;
+                }
+
+                ws.Cells["A:AZ"].AutoFitColumns();
+
+                //Write the file to the disk
+                string excelName = "RaportUsBlum.xlsx";
+                string filePath = string.Format("{0}/{1}", CreareFolderRaportare("US blum"), excelName);
+                FileInfo fi = new FileInfo(filePath);
+                pck.SaveAs(fi);
+                //pck.Save();
+                return filePath;
+            }
+        }
+
+        // Function Send mail with attachment
+        public async Task<IActionResult> SendMailAsync()
+        {
+            string listaMail = "raportusblum@gmail.com";
+            string subiectMail = string.Format(@"Raport Bare US {0}", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            string bodyText = string.Format("Buna ziua. <br>Atasat gasiti raport bare US blum pe data de: {0}. <br>O zi buna.", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            SendEmailWithFile(listaMail, subiectMail, bodyText, SaveExcelFileToDisk(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"), _context));
+
+            return RedirectToAction("Index");
         }
 
         // Functie exportare data to excel file

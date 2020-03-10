@@ -22,6 +22,8 @@
         <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
     </p>
 }
+<a id="btnSendMail" class="btn btn-default" asp-action="SendMailAsync">Trimite Mail</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -169,4 +171,16 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/js/datepickerJquery.js"></script>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSendMail").click(function () {
+                alert("Ati trimis mail!");
+            });
+
+        });
+    </script>
 }

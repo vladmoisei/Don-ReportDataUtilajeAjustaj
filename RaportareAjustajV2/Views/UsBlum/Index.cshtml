@@ -22,6 +22,7 @@
         <a id="downloadToExcel" asp-action="ExportToExcelAsync">Exporta in excel</a>
     </p>
 }
+    <a id="btnSendMail" class="btn btn-default" asp-action="SendMailAsync">Trimite Mail</a>
 <table class="table">
     <thead>
         <tr>
@@ -94,76 +95,76 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataIntroducere)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataControl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sarja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FormatBlum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Furnizor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CalitateOtel.Valoare)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FiProgramat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fir1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Blum1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MarimeDefect1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fir2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Blum2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MarimeDefect2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fir3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Blum3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MarimeDefect3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fir4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Blum4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MarimeDefect4)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observatii)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.UsBlumModelId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.UsBlumModelId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UsBlumModelId">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataIntroducere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataControl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sarja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormatBlum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Furnizor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CalitateOtel.Valoare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FiProgramat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fir4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Blum4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarimeDefect4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observatii)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UsBlumModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.UsBlumModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.UsBlumModelId">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -175,4 +176,16 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/js/datepickerJquery.js"></script>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSendMail").click(function () {
+                alert("Ati trimis mail!");
+            });
+
+        });
+    </script>
 }
