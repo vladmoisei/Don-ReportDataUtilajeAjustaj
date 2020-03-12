@@ -196,7 +196,7 @@ namespace RaportareAjustajV2.Controllers
         public async Task<IActionResult> SendMailAsync()
         {
             string listaMail = "raportusblum@gmail.com, a.dragoe@donalam.ro, b.ene@donalam.ro, b.mitran@donalam.ro, i.craciun@donalam.ro, i.croitoru@beltrame-group.com, n.casmir@beltrame-group.com, o.porumb@donalam.ro, p.hanganu@beltrame-group.com, s.mihalache@donalam.ro";
-            string subiectMail = string.Format(@"Raport Bare US {0}", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            string subiectMail = string.Format(@"Raport Blum US {0}", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             string bodyText = string.Format("Buna ziua. <br>Atasat gasiti raport bare US blum pe data de: {0}. <br>O zi buna.", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             SendEmailWithFile(listaMail, subiectMail, bodyText, SaveExcelFileToDisk(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"), _context));
 
