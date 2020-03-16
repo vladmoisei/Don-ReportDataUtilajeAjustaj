@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<NovafluxModel> listaDeAfisat = await _context.NovafluxModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
+            List<NovafluxModel> listaDeAfisat = await _context.NovafluxModels.ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);

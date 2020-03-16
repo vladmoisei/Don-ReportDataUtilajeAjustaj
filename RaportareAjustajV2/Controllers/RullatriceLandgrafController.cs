@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<RuillatriceLandgrafModel> listaDeAfisat = await _context.RuillatriceLandgrafModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
+            List<RuillatriceLandgrafModel> listaDeAfisat = await _context.RuillatriceLandgrafModels.ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);

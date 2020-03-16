@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<PresaDunkeModel> listaDeAfisat = await _context.PresaDunkeModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
+            List<PresaDunkeModel> listaDeAfisat = await _context.PresaDunkeModels.ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);

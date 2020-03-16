@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<EltiModel> listaDeAfisat = await _context.EltiModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
+            List<EltiModel> listaDeAfisat = await _context.EltiModels.ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);
