@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<GaddaModel> listaDeAfisat = await _context.GaddaModels.ToListAsync();
+            List<GaddaModel> listaDeAfisat = await _context.GaddaModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);

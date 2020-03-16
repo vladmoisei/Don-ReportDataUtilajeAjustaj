@@ -27,7 +27,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<UsBlumModel> listaDeAfisat = await _context.UsBlumModels.Include(u => u.CalitateOtel).ToListAsync();
+            List<UsBlumModel> listaDeAfisat = await _context.UsBlumModels.Include(u => u.CalitateOtel).OrderByDescending(t => t.DataIntroducere).ToListAsync();
 
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
@@ -195,9 +195,10 @@ namespace RaportareAjustajV2.Controllers
         // Function Send mail with attachment
         public async Task<IActionResult> SendMailAsync()
         {
-            string listaMail = "raportusblum@gmail.com, a.dragoe@donalam.ro, b.ene@donalam.ro, b.mitran@donalam.ro, i.craciun@donalam.ro, i.croitoru@beltrame-group.com, n.casmir@beltrame-group.com, o.porumb@donalam.ro, p.hanganu@beltrame-group.com, s.mihalache@donalam.ro";
+            string utilizator = HttpContext.Session.GetString("UserName");
+            string listaMail = "raportusblum@gmail.com, a.dragoe@donalam.ro, b.ene@donalam.ro, b.mitran@donalam.ro, i.craciun@donalam.ro, m.craciun@donalam.ro, i.croitoru@beltrame-group.com, n.casmir@beltrame-group.com, o.porumb@donalam.ro, p.hanganu@beltrame-group.com, s.mihalache@donalam.ro";
             string subiectMail = string.Format(@"Raport Blum US {0}", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            string bodyText = string.Format("Buna ziua. <br>Atasat gasiti raport bare US blum pe data de: {0}. <br>O zi buna.", DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            string bodyText = string.Format("Buna ziua.<br>Utilizator trimitere mail: {1} <br>Atasat gasiti raport bare US blum pe data de: {0}. <br>O zi buna.", DateTime.Now.ToString("dd/MM/yyyy HH:mm"), utilizator);
             SendEmailWithFile(listaMail, subiectMail, bodyText, SaveExcelFileToDisk(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"), _context));
 
             return RedirectToAction("Index");
@@ -246,8 +247,8 @@ namespace RaportareAjustajV2.Controllers
                 {
                     ws.Cells[string.Format("A{0}", rowStart)].Value = elem.UsBlumModelId;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
-                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
-                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere.ToString("dd.MM.yyyy HH:mm:ss");
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl.ToString("dd.MM.yyyy HH:mm:ss");
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Sarja;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.FormatBlum;
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Furnizor;

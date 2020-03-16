@@ -26,7 +26,7 @@ namespace RaportareAjustajV2.Controllers
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             ViewBag.IsAdmin = HttpContext.Session.GetString("IsAdmin");
-            List<FierastraieModel> listaDeAfisat = await _context.FierastraieModels.ToListAsync();
+            List<FierastraieModel> listaDeAfisat = await _context.FierastraieModels.OrderByDescending(t => t.DataIntroducere).ToListAsync();
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);
