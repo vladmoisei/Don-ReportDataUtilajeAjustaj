@@ -95,4 +95,21 @@ namespace RaportareAjustajV2
         SS
     }
 
+    public enum Motiv
+    {
+        CB,
+        NOVA,
+        PEL,
+        RUL,
+        SR,
+        TQT,
+        TA,
+        TFP,
+        TN,
+        TTQT,
+        TTA,
+        TTFP,
+        TTN
+    }
+
 }

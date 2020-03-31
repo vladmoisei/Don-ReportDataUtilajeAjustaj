@@ -23,6 +23,8 @@ namespace RaportareAjustajV2
         public string Sarja { get; set; }
         [DisplayName("Nr bare")]
         public int NrBare { get; set; }
+        [Required]
+        public Motiv Motiv { get; set; }
         public int Lungime { get; set; }
         public double Masa { get; set; }
     }

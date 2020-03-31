@@ -56,8 +56,9 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["E1"].Value = "Calitate";
                 ws.Cells["F1"].Value = "Sarja";
                 ws.Cells["G1"].Value = "Nr bare";
-                ws.Cells["H1"].Value = "Lungime";
-                ws.Cells["I1"].Value = "Masa";
+                ws.Cells["H1"].Value = "Motiv";
+                ws.Cells["I1"].Value = "Lungime";
+                ws.Cells["J1"].Value = "Masa";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -69,8 +70,9 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Calitate;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Sarja;
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.NrBare;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.Lungime;
-                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Masa;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.Motiv;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.Lungime;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Masa;
                     rowStart++;
                 }
 
@@ -113,7 +115,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RullatriceProjectManModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Lungime,Masa")] RullatriceProjectManModel rullatriceProjectManModel)
+        public async Task<IActionResult> Create([Bind("RullatriceProjectManModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Motiv,Lungime,Masa")] RullatriceProjectManModel rullatriceProjectManModel)
         {
             if (ModelState.IsValid)
             {
@@ -152,7 +154,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RullatriceProjectManModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Lungime,Masa")] RullatriceProjectManModel rullatriceProjectManModel)
+        public async Task<IActionResult> Edit(int id, [Bind("RullatriceProjectManModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,NrBare,Motiv,Lungime,Masa")] RullatriceProjectManModel rullatriceProjectManModel)
         {
             if (id != rullatriceProjectManModel.RullatriceProjectManModelId)
             {
