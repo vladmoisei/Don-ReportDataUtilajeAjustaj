@@ -110,6 +110,16 @@
             <select asp-for="TipDiscontinuitate" class="form-control" asp-items="Html.GetEnumSelectList<TipDiscontinuitate>()"></select>
             <span asp-validation-for="TipDiscontinuitate" class="text-danger"></span>
         </div>
+        <div class="form-group col-md-1">
+            <label asp-for="Range" class="control-label fix-height"></label>
+            <input asp-for="Range" class="form-control" />
+            <span asp-validation-for="Range" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <label asp-for="Gain" class="control-label fix-height"></label>
+            <input asp-for="Gain" class="form-control" />
+            <span asp-validation-for="Gain" class="text-danger"></span>
+        </div>
         <div class="form-group col-md-3">
             <label asp-for="Observatii" class="control-label fix-height"></label>
             <input asp-for="Observatii" class="form-control" />

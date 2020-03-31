@@ -85,6 +85,12 @@
                 @Html.DisplayNameFor(model => model.TipDiscontinuitate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Range)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gain)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Observatii)
             </th>
             <th></th>
@@ -93,73 +99,79 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataIntroducere)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataControl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Diametru)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Furnizor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sarja)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CalitateOtel.Valoare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StareMaterial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clasa3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarimeDefect3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clasa2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarimeDefect2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clasa2Plus)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarimeDefect2Plus)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clasa1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarimeDefect1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SS)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarimeDefectSS)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipDiscontinuitate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Observatii)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.UsBarModelId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.UsBarModelId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.UsBarModelId">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIntroducere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataControl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diametru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Furnizor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalitateOtel.Valoare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StareMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasa3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarimeDefect3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasa2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarimeDefect2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasa2Plus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarimeDefect2Plus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasa1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarimeDefect1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarimeDefectSS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipDiscontinuitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Range)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observatii)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UsBarModelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UsBarModelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UsBarModelId">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

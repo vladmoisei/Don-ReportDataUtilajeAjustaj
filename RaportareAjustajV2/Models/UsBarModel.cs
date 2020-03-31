@@ -38,7 +38,7 @@ namespace RaportareAjustajV2
         [DisplayName("Calitate Otel")]
         public virtual CalitateOtelModel CalitateOtel { get; set; }
 
-        [DisplayName("Stare Material")]
+        [DisplayName("Stare Suprafata")]
         public StareMaterial StareMaterial { get; set; }
 
         [DisplayName("Clasa 3")]
@@ -72,6 +72,11 @@ namespace RaportareAjustajV2
 
         [DisplayName("Tip Discontinuitate")]
         public TipDiscontinuitate TipDiscontinuitate { get; set; }
+
+        [DisplayName("Range [mm]")]
+        public string Range { get; set; }
+
+        public string Gain { get; set; }
 
         [MaxLength(250)]
         public string Observatii { get; set; }

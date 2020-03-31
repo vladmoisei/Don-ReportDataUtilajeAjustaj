@@ -70,10 +70,17 @@ namespace RaportareAjustajV2
 
     public enum StareMaterial
     {
-        L,
+        LAMINAT,
         IQT,
         DQT,
-        T
+        RULAT,
+        PELAT,
+        SABLAT,
+        QT,
+        N,
+        A,
+        FP,
+        SR
     }
 
     public enum TipDiscontinuitate
@@ -81,7 +88,11 @@ namespace RaportareAjustajV2
         DCE,
         DCP,
         DCG,
-        PC
+        PC,
+        DCEG,
+        DCPI,
+        DCE_PC,
+        SS
     }
 
 }

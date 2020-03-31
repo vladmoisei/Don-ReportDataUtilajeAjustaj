@@ -31,8 +31,10 @@ namespace RaportareAjustajV2.Controllers
             // Daca e admin afisam toata lista
             if (ViewBag.IsAdmin == "True")
                 return View(listaDeAfisat);
-            // Daca nu e admin afisam doar datele introduse in ziua curenta
-            return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsCurrentDay(model.DataIntroducere)));
+            // Daca nu e admin afisam doar datele introduse cu o luna in urma
+            // Extrage datele cuprinse intre limitele date de operator
+            
+            return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere.ToString("dd/MM/yyyy HH:mm"), DateTime.Now.AddMonths(-1).ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"))));
 
         }
         // Functie Send Email monthly with Consumption for all month
@@ -147,7 +149,9 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["R1"].Value = "Clasa SS";
                 ws.Cells["S1"].Value = "Marime Defect [mm]";
                 ws.Cells["T1"].Value = "Tip Discontinuitate";
-                ws.Cells["U1"].Value = "Observatii";
+                ws.Cells["U1"].Value = "Range";
+                ws.Cells["V1"].Value = "Gain";
+                ws.Cells["W1"].Value = "Observatii";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -172,7 +176,9 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("R{0}", rowStart)].Value = elem.SS;
                     ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefectSS;
                     ws.Cells[string.Format("T{0}", rowStart)].Value = elem.TipDiscontinuitate;
-                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Range;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Gain;
+                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Observatii;
                     rowStart++;
                 }
 
@@ -236,7 +242,9 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["R1"].Value = "Clasa SS";
                 ws.Cells["S1"].Value = "Marime Defect [mm]";
                 ws.Cells["T1"].Value = "Tip Discontinuitate";
-                ws.Cells["U1"].Value = "Observatii";
+                ws.Cells["U1"].Value = "Range";
+                ws.Cells["V1"].Value = "Gain";
+                ws.Cells["W1"].Value = "Observatii";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -261,7 +269,9 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("R{0}", rowStart)].Value = elem.SS;
                     ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefectSS;
                     ws.Cells[string.Format("T{0}", rowStart)].Value = elem.TipDiscontinuitate;
-                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Range;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Gain;
+                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Observatii;
                     rowStart++;
                 }
 
@@ -306,7 +316,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UsBarModelId,UserName,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Observatii")] UsBarModel usBarModel)
+        public async Task<IActionResult> Create([Bind("UsBarModelId,UserName,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
         {
             if (ModelState.IsValid)
             {
@@ -346,7 +356,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsBarModelId,UserName,DataIntroducere,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Observatii")] UsBarModel usBarModel)
+        public async Task<IActionResult> Edit(int id, [Bind("UsBarModelId,UserName,DataIntroducere,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
         {
             if (id != usBarModel.UsBarModelId)
             {
