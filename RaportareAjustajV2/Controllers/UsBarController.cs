@@ -138,20 +138,22 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["G1"].Value = "Sarja";
                 ws.Cells["H1"].Value = "Calitate Otel";
                 ws.Cells["I1"].Value = "Stare Material";
-                ws.Cells["J1"].Value = "Clasa 3";
-                ws.Cells["K1"].Value = "Marime Defect [mm]";
-                ws.Cells["L1"].Value = "Clasa 2";
+                ws.Cells["J1"].Value = "Conform ASTM 388";
+                ws.Cells["K1"].Value = "Neconform ASTM 388";
+                ws.Cells["L1"].Value = "Clasa 3";
                 ws.Cells["M1"].Value = "Marime Defect [mm]";
-                ws.Cells["N1"].Value = "Clasa 2+";
+                ws.Cells["N1"].Value = "Clasa 2";
                 ws.Cells["O1"].Value = "Marime Defect [mm]";
-                ws.Cells["P1"].Value = "Clasa 1";
+                ws.Cells["P1"].Value = "Clasa 2+";
                 ws.Cells["Q1"].Value = "Marime Defect [mm]";
-                ws.Cells["R1"].Value = "Clasa SS";
+                ws.Cells["R1"].Value = "Clasa 1";
                 ws.Cells["S1"].Value = "Marime Defect [mm]";
-                ws.Cells["T1"].Value = "Tip Discontinuitate";
-                ws.Cells["U1"].Value = "Range";
-                ws.Cells["V1"].Value = "Gain";
-                ws.Cells["W1"].Value = "Observatii";
+                ws.Cells["T1"].Value = "Clasa SS";
+                ws.Cells["U1"].Value = "Marime Defect [mm]";
+                ws.Cells["V1"].Value = "Tip Discontinuitate";
+                ws.Cells["W1"].Value = "Range";
+                ws.Cells["X1"].Value = "Gain";
+                ws.Cells["Y1"].Value = "Observatii";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -165,20 +167,22 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
                     ws.Cells[string.Format("H{0}", rowStart)].Value = elem.CalitateOtel.Valoare;
                     ws.Cells[string.Format("I{0}", rowStart)].Value = elem.StareMaterial;
-                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Clasa3;
-                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.MarimeDefect3;
-                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.Clasa2;
-                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.MarimeDefect2;
-                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Clasa2Plus;
-                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2Plus;
-                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Clasa1;
-                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.MarimeDefect1;
-                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.SS;
-                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefectSS;
-                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.TipDiscontinuitate;
-                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Range;
-                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Gain;
-                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.ConformASTM388;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.NeconformASTM388;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.Clasa3;
+                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.MarimeDefect3;
+                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Clasa2;
+                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2;
+                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Clasa2Plus;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.MarimeDefect2Plus;
+                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.Clasa1;
+                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefect1;
+                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.SS;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.MarimeDefectSS;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.TipDiscontinuitate;
+                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Range;
+                    ws.Cells[string.Format("X{0}", rowStart)].Value = elem.Gain;
+                    ws.Cells[string.Format("Y{0}", rowStart)].Value = elem.Observatii;
                     rowStart++;
                 }
 
@@ -231,47 +235,52 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["G1"].Value = "Sarja";
                 ws.Cells["H1"].Value = "Calitate Otel";
                 ws.Cells["I1"].Value = "Stare Material";
-                ws.Cells["J1"].Value = "Clasa 3";
-                ws.Cells["K1"].Value = "Marime Defect [mm]";
-                ws.Cells["L1"].Value = "Clasa 2";
+                ws.Cells["J1"].Value = "Conform ASTM 388";
+                ws.Cells["K1"].Value = "Neconform ASTM 388";
+                ws.Cells["L1"].Value = "Clasa 3";
                 ws.Cells["M1"].Value = "Marime Defect [mm]";
-                ws.Cells["N1"].Value = "Clasa 2+";
+                ws.Cells["N1"].Value = "Clasa 2";
                 ws.Cells["O1"].Value = "Marime Defect [mm]";
-                ws.Cells["P1"].Value = "Clasa 1";
+                ws.Cells["P1"].Value = "Clasa 2+";
                 ws.Cells["Q1"].Value = "Marime Defect [mm]";
-                ws.Cells["R1"].Value = "Clasa SS";
+                ws.Cells["R1"].Value = "Clasa 1";
                 ws.Cells["S1"].Value = "Marime Defect [mm]";
-                ws.Cells["T1"].Value = "Tip Discontinuitate";
-                ws.Cells["U1"].Value = "Range";
-                ws.Cells["V1"].Value = "Gain";
-                ws.Cells["W1"].Value = "Observatii";
+                ws.Cells["T1"].Value = "Clasa SS";
+                ws.Cells["U1"].Value = "Marime Defect [mm]";
+                ws.Cells["V1"].Value = "Tip Discontinuitate";
+                ws.Cells["W1"].Value = "Range";
+                ws.Cells["X1"].Value = "Gain";
+                ws.Cells["Y1"].Value = "Observatii";
+
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
                 {
                     ws.Cells[string.Format("A{0}", rowStart)].Value = elem.UsBarModelId;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
-                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
-                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl;
+                    ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere.ToString("dd.MM.yyyy");
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl.ToString("dd.MM.yyyy");
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Furnizor;
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
                     ws.Cells[string.Format("H{0}", rowStart)].Value = elem.CalitateOtel.Valoare;
                     ws.Cells[string.Format("I{0}", rowStart)].Value = elem.StareMaterial;
-                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.Clasa3;
-                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.MarimeDefect3;
-                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.Clasa2;
-                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.MarimeDefect2;
-                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Clasa2Plus;
-                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2Plus;
-                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Clasa1;
-                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.MarimeDefect1;
-                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.SS;
-                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefectSS;
-                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.TipDiscontinuitate;
-                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.Range;
-                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.Gain;
-                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Observatii;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.ConformASTM388;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.NeconformASTM388;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.Clasa3;
+                    ws.Cells[string.Format("M{0}", rowStart)].Value = elem.MarimeDefect3;
+                    ws.Cells[string.Format("N{0}", rowStart)].Value = elem.Clasa2;
+                    ws.Cells[string.Format("O{0}", rowStart)].Value = elem.MarimeDefect2;
+                    ws.Cells[string.Format("P{0}", rowStart)].Value = elem.Clasa2Plus;
+                    ws.Cells[string.Format("Q{0}", rowStart)].Value = elem.MarimeDefect2Plus;
+                    ws.Cells[string.Format("R{0}", rowStart)].Value = elem.Clasa1;
+                    ws.Cells[string.Format("S{0}", rowStart)].Value = elem.MarimeDefect1;
+                    ws.Cells[string.Format("T{0}", rowStart)].Value = elem.SS;
+                    ws.Cells[string.Format("U{0}", rowStart)].Value = elem.MarimeDefectSS;
+                    ws.Cells[string.Format("V{0}", rowStart)].Value = elem.TipDiscontinuitate;
+                    ws.Cells[string.Format("W{0}", rowStart)].Value = elem.Range;
+                    ws.Cells[string.Format("X{0}", rowStart)].Value = elem.Gain;
+                    ws.Cells[string.Format("Y{0}", rowStart)].Value = elem.Observatii;
                     rowStart++;
                 }
 
@@ -316,7 +325,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UsBarModelId,UserName,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
+        public async Task<IActionResult> Create([Bind("UsBarModelId,UserName,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,ConformASTM388,NeconformASTM388,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
         {
             if (ModelState.IsValid)
             {
@@ -356,7 +365,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsBarModelId,UserName,DataIntroducere,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
+        public async Task<IActionResult> Edit(int id, [Bind("UsBarModelId,UserName,DataIntroducere,DataControl,Diametru,Furnizor,Sarja,CalitateOtelModelId,StareMaterial,ConformASTM388,NeconformASTM388,Clasa3,MarimeDefect3,Clasa2,MarimeDefect2,Clasa2Plus,MarimeDefect2Plus,Clasa1,MarimeDefect1,SS,MarimeDefectSS,TipDiscontinuitate,Range,Gain,Observatii")] UsBarModel usBarModel)
         {
             if (id != usBarModel.UsBarModelId)
             {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RaportareAjustajV2;
 
 namespace RaportareAjustajV2.Migrations
 {
     [DbContext(typeof(RaportareDbContext))]
-    partial class RaportareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200402072059_ModifyUSBarModel")]
+    partial class ModifyUSBarModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

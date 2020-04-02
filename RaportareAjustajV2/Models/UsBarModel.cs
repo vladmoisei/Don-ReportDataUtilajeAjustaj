@@ -41,6 +41,12 @@ namespace RaportareAjustajV2
         [DisplayName("Stare Suprafata")]
         public StareMaterial StareMaterial { get; set; }
 
+        [DisplayName("Conform ASTM 388")]
+        public int ConformASTM388 { get; set; }
+
+        [DisplayName("Neconform ASTM 388")]
+        public int NeconformASTM388 { get; set; }
+
         [DisplayName("Clasa 3")]
         public int Clasa3 { get; set; }
 
