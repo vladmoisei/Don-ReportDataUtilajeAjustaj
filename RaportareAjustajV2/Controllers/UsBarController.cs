@@ -34,7 +34,7 @@ namespace RaportareAjustajV2.Controllers
             // Daca nu e admin afisam doar datele introduse cu o luna in urma
             // Extrage datele cuprinse intre limitele date de operator
             
-            return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere.ToString("dd/MM/yyyy HH:mm"), DateTime.Now.AddMonths(-1).ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"))));
+            return View(listaDeAfisat.Where(model => CalculeAuxiliar.IsDateBetween(model.DataIntroducere.ToString("dd/MM/yyyy HH:mm"), DateTime.Now.AddMonths(-1).ToString("dd/MM/yyyy"), DateTime.Now.AddDays(1).ToString("dd/MM/yyyy"))));
 
         }
         // Functie Send Email monthly with Consumption for all month
