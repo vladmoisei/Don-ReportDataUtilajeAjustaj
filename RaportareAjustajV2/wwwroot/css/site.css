@@ -48,3 +48,13 @@ body {
     padding-left: 6px;
     padding-right: 6px;
 }
+
+
+.imagine {
+    height: 51px;
+    border-radius: 5px;
+}
+
+.navbar-header {
+    height: 72px;
+}
