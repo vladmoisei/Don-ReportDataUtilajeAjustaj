@@ -234,8 +234,8 @@ namespace RaportareAjustajV2.Controllers
                 ws.Cells["M1"].Value = "Fir 2";
                 ws.Cells["N1"].Value = "Blum 2";
                 ws.Cells["O1"].Value = "Marime defect 2";
-                ws.Cells["Q1"].Value = "Fir 3";
-                ws.Cells["P1"].Value = "Blum 3";
+                ws.Cells["P1"].Value = "Fir 3";
+                ws.Cells["Q1"].Value = "Blum 3";
                 ws.Cells["R1"].Value = "Marime defect 3";
                 ws.Cells["S1"].Value = "Fir 4";
                 ws.Cells["T1"].Value = "Blum 4";
@@ -365,6 +365,7 @@ namespace RaportareAjustajV2.Controllers
             {
                 try
                 {
+                    usBlumModel.DataIntroducere = DateTime.Now;
                     _context.Update(usBlumModel);
                     await _context.SaveChangesAsync();
                 }

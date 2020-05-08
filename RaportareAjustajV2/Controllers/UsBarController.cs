@@ -376,6 +376,7 @@ namespace RaportareAjustajV2.Controllers
             {
                 try
                 {
+                    usBarModel.DataIntroducere = DateTime.Now;
                     _context.Update(usBarModel);
                     await _context.SaveChangesAsync();
                 }
