@@ -66,7 +66,8 @@ namespace RaportareAjustajV2
         SK,
         TE,
         CK,
-        BB
+        BB,
+        SO
     }
 
     public enum StareMaterial
