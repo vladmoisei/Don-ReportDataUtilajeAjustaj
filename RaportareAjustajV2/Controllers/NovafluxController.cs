@@ -45,21 +45,22 @@ namespace RaportareAjustajV2.Controllers
             var stream = new MemoryStream();
 
             using (var pck = new ExcelPackage(stream))
-            {
+            { 
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add("NovaFlux");
                 ws.Cells["A1:Z1"].Style.Font.Bold = true;
 
                 ws.Cells["A1"].Value = "NovafluxModelId";
                 ws.Cells["B1"].Value = "UserName";
                 ws.Cells["C1"].Value = "Data introducere";
-                ws.Cells["D1"].Value = "Diametru";
-                ws.Cells["E1"].Value = "Calitate";
-                ws.Cells["F1"].Value = "Sarja";
-                ws.Cells["G1"].Value = "Defect Etalon";
-                ws.Cells["H1"].Value = "Nr bare Conforme";
-                ws.Cells["I1"].Value = "Masa Conform";
-                ws.Cells["J1"].Value = "Nr bare neconforme";
-                ws.Cells["K1"].Value = "Masa Neconform";
+                ws.Cells["D1"].Value = "Data Control";
+                ws.Cells["E1"].Value = "Diametru";
+                ws.Cells["F1"].Value = "Calitate";
+                ws.Cells["G1"].Value = "Sarja";
+                ws.Cells["H1"].Value = "Defect Etalon";
+                ws.Cells["I1"].Value = "Nr bare Conforme";
+                ws.Cells["J1"].Value = "Masa Conform";
+                ws.Cells["K1"].Value = "Nr bare neconforme";
+                ws.Cells["L1"].Value = "Masa Neconform";
 
                 int rowStart = 2;
                 foreach (var elem in listaDeAfisat)
@@ -67,14 +68,15 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("A{0}", rowStart)].Value = elem.NovafluxModelId;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
                     ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
-                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.Diametru;
-                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Calitate;
-                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Sarja;
-                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.DefectEtalon;
-                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.NrBareConform;
-                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.MasaConform;
-                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.NrBareNeConform;
-                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.MasaNeConform;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl;
+                    ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
+                    ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
+                    ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
+                    ws.Cells[string.Format("H{0}", rowStart)].Value = elem.DefectEtalon;
+                    ws.Cells[string.Format("I{0}", rowStart)].Value = elem.NrBareConform;
+                    ws.Cells[string.Format("J{0}", rowStart)].Value = elem.MasaConform;
+                    ws.Cells[string.Format("K{0}", rowStart)].Value = elem.NrBareNeConform;
+                    ws.Cells[string.Format("L{0}", rowStart)].Value = elem.MasaNeConform;
                     rowStart++;
                 }
 
@@ -117,7 +119,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NovafluxModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,DefectEtalon,NrBareConform,MasaConform,NrBareNeConform,MasaNeConform")] NovafluxModel novafluxModel)
+        public async Task<IActionResult> Create([Bind("NovafluxModelId,UserName,DataIntroducere,DataControl,Diametru,Calitate,Sarja,DefectEtalon,NrBareConform,MasaConform,NrBareNeConform,MasaNeConform")] NovafluxModel novafluxModel)
         {
             if (ModelState.IsValid)
             {
@@ -157,7 +159,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NovafluxModelId,UserName,DataIntroducere,Diametru,Calitate,Sarja,DefectEtalon,NrBareConform,MasaConform,NrBareNeConform,MasaNeConform")] NovafluxModel novafluxModel)
+        public async Task<IActionResult> Edit(int id, [Bind("NovafluxModelId,UserName,DataIntroducere,DataControl,Diametru,Calitate,Sarja,DefectEtalon,NrBareConform,MasaConform,NrBareNeConform,MasaNeConform")] NovafluxModel novafluxModel)
         {
             if (id != novafluxModel.NovafluxModelId)
             {
