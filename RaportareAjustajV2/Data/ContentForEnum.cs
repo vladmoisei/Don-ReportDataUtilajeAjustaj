@@ -111,7 +111,8 @@ namespace RaportareAjustajV2
         TTQT,
         TTA,
         TTFP,
-        TTN
+        TTN,
+        MAGNAFLUX
     }
 
 }

@@ -16,6 +16,9 @@ namespace RaportareAjustajV2
         [MaxLength(100)]
         [DisplayName("Data Introducere")]
         public string DataIntroducere { get; set; }
+        [Display(Name = "Data Control"), DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = false)]
+        public DateTime DataControl { get; set; }
         public int Diametru { get; set; }
         [MaxLength(100)]
         public string Calitate { get; set; }

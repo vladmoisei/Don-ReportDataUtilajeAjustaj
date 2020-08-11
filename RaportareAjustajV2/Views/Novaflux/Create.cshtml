@@ -11,62 +11,67 @@
 <p class="alert-danger">@ViewBag.Mesaj</p>
 <div class="row">
     @*<div class="col-md-4">*@
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group hide">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" value=@ViewBag.UserName/>
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group hide">
-                <label asp-for="DataIntroducere" class="control-label"></label>
-                <input asp-for="DataIntroducere" class="form-control" value="data"/>
-                <span asp-validation-for="DataIntroducere" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-1">
-                <label asp-for="Diametru" class="control-label"></label>
-                <input asp-for="Diametru" class="form-control" />
-                <span asp-validation-for="Diametru" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-2">
-                <label asp-for="Calitate" class="control-label"></label>
-                <input asp-for="Calitate" class="form-control" />
-                <span asp-validation-for="Calitate" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-2">
-                <label asp-for="Sarja" class="control-label"></label>
-                <input asp-for="Sarja" class="form-control" />
-                <span asp-validation-for="Sarja" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-1">
-                <label asp-for="DefectEtalon" class="control-label"></label>
-                <input asp-for="DefectEtalon" class="form-control" />
-                <span asp-validation-for="DefectEtalon" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-1">
-                <label asp-for="NrBareConform" class="control-label"></label>
-                <input asp-for="NrBareConform" class="form-control" />
-                <span asp-validation-for="NrBareConform" class="text-danger"></span>
-            </div>
-            <div class="form-group hide">
-                <label asp-for="MasaConform" class="control-label"></label>
-                <input asp-for="MasaConform" class="form-control" value=".0"/>
-                <span asp-validation-for="MasaConform" class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-1">
-                <label asp-for="NrBareNeConform" class="control-label"></label>
-                <input asp-for="NrBareNeConform" class="form-control" />
-                <span asp-validation-for="NrBareNeConform" class="text-danger"></span>
-            </div>
-            <div class="form-group hide">
-                <label asp-for="MasaNeConform" class="control-label"></label>
-                <input asp-for="MasaNeConform" class="form-control" value="0"/>
-                <span asp-validation-for="MasaNeConform" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group hide">
+            <label asp-for="UserName" class="control-label"></label>
+            <input asp-for="UserName" class="form-control" value=@ViewBag.UserName />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group hide">
+            <label asp-for="DataIntroducere" class="control-label"></label>
+            <input asp-for="DataIntroducere" class="form-control" value="data" />
+            <span asp-validation-for="DataIntroducere" class="text-danger"></span>
+        </div>
+        <div class="form-group hide">
+            <label asp-for="DataControl" class="control-label"></label>
+            <input asp-for="DataControl" class="form-control" value="data" />
+            <span asp-validation-for="DataControl" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <label asp-for="Diametru" class="control-label"></label>
+            <input asp-for="Diametru" class="form-control" />
+            <span asp-validation-for="Diametru" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Calitate" class="control-label"></label>
+            <input asp-for="Calitate" class="form-control" />
+            <span asp-validation-for="Calitate" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Sarja" class="control-label"></label>
+            <input asp-for="Sarja" class="form-control" />
+            <span asp-validation-for="Sarja" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <label asp-for="DefectEtalon" class="control-label"></label>
+            <input asp-for="DefectEtalon" class="form-control" />
+            <span asp-validation-for="DefectEtalon" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <label asp-for="NrBareConform" class="control-label"></label>
+            <input asp-for="NrBareConform" class="form-control" />
+            <span asp-validation-for="NrBareConform" class="text-danger"></span>
+        </div>
+        <div class="form-group hide">
+            <label asp-for="MasaConform" class="control-label"></label>
+            <input asp-for="MasaConform" class="form-control" value=".0" />
+            <span asp-validation-for="MasaConform" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-1">
+            <label asp-for="NrBareNeConform" class="control-label"></label>
+            <input asp-for="NrBareNeConform" class="form-control" />
+            <span asp-validation-for="NrBareNeConform" class="text-danger"></span>
+        </div>
+        <div class="form-group hide">
+            <label asp-for="MasaNeConform" class="control-label"></label>
+            <input asp-for="MasaNeConform" class="form-control" value="0" />
+            <span asp-validation-for="MasaNeConform" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </form>
     @*</div>*@
 </div>
 
