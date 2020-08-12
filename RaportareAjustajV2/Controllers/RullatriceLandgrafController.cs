@@ -67,7 +67,7 @@ namespace RaportareAjustajV2.Controllers
                     ws.Cells[string.Format("A{0}", rowStart)].Value = elem.RuillatriceLandgrafModelId;
                     ws.Cells[string.Format("B{0}", rowStart)].Value = elem.UserName;
                     ws.Cells[string.Format("C{0}", rowStart)].Value = elem.DataIntroducere;
-                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl;
+                    ws.Cells[string.Format("D{0}", rowStart)].Value = elem.DataControl.ToString("dd/MM/yyyy");
                     ws.Cells[string.Format("E{0}", rowStart)].Value = elem.Diametru;
                     ws.Cells[string.Format("F{0}", rowStart)].Value = elem.Calitate;
                     ws.Cells[string.Format("G{0}", rowStart)].Value = elem.Sarja;
