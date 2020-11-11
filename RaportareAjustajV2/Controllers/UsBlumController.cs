@@ -312,7 +312,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UsBlumModelId,UserName,DataControl,Sarja,FormatBlum,Furnizor,CalitateOtelModelId,FiProgramat,Fir1,Blum1,MarimeDefect1,Fir2,Blum2,MarimeDefect2,Fir3,Blum3,MarimeDefect3,Observatii")] UsBlumModel usBlumModel)
+        public async Task<IActionResult> Create([Bind("UsBlumModelId,UserName,DataControl,Sarja,FormatBlum,Furnizor,CalitateOtelModelId,FiProgramat,Fir1,Blum1,MarimeDefect1,Fir2,Blum2,MarimeDefect2,Fir3,Blum3,MarimeDefect3,Fir4,Blum4,MarimeDefect4,Observatii")] UsBlumModel usBlumModel)
         {
             if (ModelState.IsValid)
             {
@@ -354,7 +354,7 @@ namespace RaportareAjustajV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsBlumModelId,UserName,DataIntroducere,DataControl,Sarja,FormatBlum,Furnizor,CalitateOtelModelId,FiProgramat,Fir1,Blum1,MarimeDefect1,Fir2,Blum2,MarimeDefect2,Fir3,Blum3,MarimeDefect3,Observatii")] UsBlumModel usBlumModel)
+        public async Task<IActionResult> Edit(int id, [Bind("UsBlumModelId,UserName,DataIntroducere,DataControl,Sarja,FormatBlum,Furnizor,CalitateOtelModelId,FiProgramat,Fir1,Blum1,MarimeDefect1,Fir2,Blum2,MarimeDefect2,Fir3,Blum3,MarimeDefect3,Fir4,Blum4,MarimeDefect4,Observatii")] UsBlumModel usBlumModel)
         {
             if (id != usBlumModel.UsBlumModelId)
             {
