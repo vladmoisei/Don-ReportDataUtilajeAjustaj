@@ -1,0 +1,132 @@
+﻿@model IEnumerable<RaportareAjustajV2.Models.StrungarieCilindriModel>
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutFullWidth.cshtml";
+
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    <a asp-action="ImportFile">Adauga Lista din Fisier</a>
+</p>
+<p>
+    <a asp-action="ExportExcelFile">Exporta Lista in Excel</a>
+</p>
+<p>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIntroducere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodCartellino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Furnizor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diametru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lungime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Greutate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotivNeexpediere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescrSdF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsInLucru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiametruFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataBifatInLucru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDiamFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentariuStrungarie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIntroducere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodCartellino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Furnizor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diametru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lungime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Greutate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotivNeexpediere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescrSdF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsInLucru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiametruFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataBifatInLucru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDiamFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentariuStrungarie)
+            </td>
+            @if (ViewBag.Utilaj != UtilajeAjustaj.StrungarieCilindriOp)
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StrungarieCilindriModelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.StrungarieCilindriModelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.StrungarieCilindriModelId">Delete</a>
+                </td>
+            }
+            </tr>
+        }
+    </tbody>
+</table>

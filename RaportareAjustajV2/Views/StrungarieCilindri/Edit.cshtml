@@ -1,0 +1,103 @@
+﻿@model RaportareAjustajV2.Models.StrungarieCilindriModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>StrungarieCilindriModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StrungarieCilindriModelId" />
+            <div class="form-group">
+                <label asp-for="DataIntroducere" class="control-label"></label>
+                <input asp-for="DataIntroducere" class="form-control" />
+                <span asp-validation-for="DataIntroducere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodCartellino" class="control-label"></label>
+                <input asp-for="CodCartellino" class="form-control" />
+                <span asp-validation-for="CodCartellino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Furnizor" class="control-label"></label>
+                <input asp-for="Furnizor" class="form-control" />
+                <span asp-validation-for="Furnizor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sarja" class="control-label"></label>
+                <input asp-for="Sarja" class="form-control" />
+                <span asp-validation-for="Sarja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diametru" class="control-label"></label>
+                <input asp-for="Diametru" class="form-control" />
+                <span asp-validation-for="Diametru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calitate" class="control-label"></label>
+                <input asp-for="Calitate" class="form-control" />
+                <span asp-validation-for="Calitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lungime" class="control-label"></label>
+                <input asp-for="Lungime" class="form-control" />
+                <span asp-validation-for="Lungime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Greutate" class="control-label"></label>
+                <input asp-for="Greutate" class="form-control" />
+                <span asp-validation-for="Greutate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MotivNeexpediere" class="control-label"></label>
+                <input asp-for="MotivNeexpediere" class="form-control" />
+                <span asp-validation-for="MotivNeexpediere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescrSdF" class="control-label"></label>
+                <input asp-for="DescrSdF" class="form-control" />
+                <span asp-validation-for="DescrSdF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsInLucru" /> @Html.DisplayNameFor(model => model.IsInLucru)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiametruFinal" class="control-label"></label>
+                <input asp-for="DiametruFinal" class="form-control" />
+                <span asp-validation-for="DiametruFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataBifatInLucru" class="control-label"></label>
+                <input asp-for="DataBifatInLucru" class="form-control" />
+                <span asp-validation-for="DataBifatInLucru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDiamFinal" class="control-label"></label>
+                <input asp-for="DataDiamFinal" class="form-control" />
+                <span asp-validation-for="DataDiamFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComentariuStrungarie" class="control-label"></label>
+                <input asp-for="ComentariuStrungarie" class="form-control" />
+                <span asp-validation-for="ComentariuStrungarie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

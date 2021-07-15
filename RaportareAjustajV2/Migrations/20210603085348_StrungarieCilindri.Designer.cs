@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RaportareAjustajV2;
 
 namespace RaportareAjustajV2.Migrations
 {
     [DbContext(typeof(RaportareDbContext))]
-    partial class RaportareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210603085348_StrungarieCilindri")]
+    partial class StrungarieCilindri
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,10 +216,10 @@ namespace RaportareAjustajV2.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Calitate")
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
 
                     b.Property<string>("CodCartellino")
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
 
                     b.Property<string>("ComentariuStrungarie")
                         .HasMaxLength(250);
@@ -229,7 +231,7 @@ namespace RaportareAjustajV2.Migrations
                     b.Property<DateTime>("DataIntroducere");
 
                     b.Property<string>("DescrSdF")
-                        .HasMaxLength(250);
+                        .HasMaxLength(100);
 
                     b.Property<string>("Diametru")
                         .HasMaxLength(10);
@@ -249,10 +251,10 @@ namespace RaportareAjustajV2.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("MotivNeexpediere")
-                        .HasMaxLength(250);
+                        .HasMaxLength(100);
 
                     b.Property<string>("Sarja")
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
 
                     b.HasKey("StrungarieCilindriModelId");
 

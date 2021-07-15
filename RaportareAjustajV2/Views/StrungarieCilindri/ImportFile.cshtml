@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Importa fisier";
+}
+
+<h2>ImportFile</h2>
+<div class="alert alert-danger col-lg-4 @ViewBag.Hidden">@ViewBag.Mesaj</div>
+<div class="row">
+    <form method="post" enctype="multipart/form-data" asp-controller="StrungarieCilindri" asp-action="ImportFile">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Incarca fisierul cu lista bare:</p>
+                <input type="file" name="files" multiple />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Upload" />
+            </div>
+        </div>
+    </form>
+</div>
+@*<div class="row">
+    <form method="post" enctype="multipart/form-data" asp-controller="StrungarieCilindri" asp-action="StergereElementeById">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Sterge cu Id-ul mai mare decat cel introdus:</p>
+                <input id="numberId" name="numberId" type="number" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input id="butonStergereElemById" type="submit" value="Sterge" />
+            </div>
+        </div>
+    </form>
+</div>*@

@@ -16,68 +16,112 @@
     {
         if (utilaj != UtilajeAjustaj.Toate)
         {
-    @Html.ActionLink(
-                linkText: utilaj.ToString(),
-                actionName: "Index",
-                controllerName: utilaj.ToString(),
-                routeValues: new
-                {
-                    //UserId = Model.UserId,
-                    //UserName = Model.UserName,
-                    //Password = Model.Password,
-                    //Nume = Model.Nume,
-                    //Prenume = Model.Prenume,
-                    //IsAdmin = Model.IsAdmin,
-                    //IsEnable = Model.IsEnable,
-                    //Utilaj = Model.Utilaj
-                },
-                htmlAttributes: null
-                )}
+            if (utilaj == UtilajeAjustaj.StrungarieCilindriCal)
+            {
+                @Html.ActionLink(
+                        linkText: "Strungarie Cilindri Calitate",
+                        actionName: "Index",
+                        controllerName: "StrungarieCilindri",
+                        routeValues: new
+                        {
+                            //UserId = Model.UserId,
+                            //UserName = Model.UserName,
+                            //Password = Model.Password,
+                            //Nume = Model.Nume,
+                            //Prenume = Model.Prenume,
+                            //IsAdmin = Model.IsAdmin,
+                            //IsEnable = Model.IsEnable,
+                            //Utilaj = Model.Utilaj
+                        },
+                        htmlAttributes: null
+                        )
+                continue;
+            }
+            else if (utilaj == UtilajeAjustaj.StrungarieCilindriOp)
+            {
+                @Html.ActionLink(
+                            linkText: "Strungarie Cilindri Operator",
+                            actionName: "EditStrungarie",
+                            controllerName: "StrungarieCilindri",
+                            routeValues: new
+                            {
+                                //UserId = Model.UserId,
+                                //UserName = Model.UserName,
+                                //Password = Model.Password,
+                                //Nume = Model.Nume,
+                                //Prenume = Model.Prenume,
+                                //IsAdmin = Model.IsAdmin,
+                                //IsEnable = Model.IsEnable,
+                                //Utilaj = Model.Utilaj
+                            },
+                            htmlAttributes: null
+                            )
+                continue;
+            }
+            // Pentru fiecare operator logat returneaza link la utilaj respectiv
+            @Html.ActionLink(
+                        linkText: utilaj.ToString(),
+                        actionName: "Index",
+                        controllerName: utilaj.ToString(),
+                        routeValues: new
+                        {
+                            //UserId = Model.UserId,
+                            //UserName = Model.UserName,
+                            //Password = Model.Password,
+                            //Nume = Model.Nume,
+                            //Prenume = Model.Prenume,
+                            //IsAdmin = Model.IsAdmin,
+                            //IsEnable = Model.IsEnable,
+                            //Utilaj = Model.Utilaj
+                        },
+                        htmlAttributes: null
+                        )
+        }
     }
 </div>
 }
 @*<div>
-    <a id="@Model.Utilaj" class="" asp-action="Elti" asp-route-id="@Model">Elti</a>
-    @if (Model.Utilaj == UtilajeAjustaj.Elind || Model.Utilaj == UtilajeAjustaj.Toate)
-    {
-        @Html.ActionLink(
-    linkText: "Lista utilizatori",
-    actionName: "Index",
-    controllerName: "Users",
-    routeValues: new { UserId = Model.UserId,
-        UserName =Model.UserName,
-        Password = Model.Password,
-        Nume = Model.Nume,
-        Prenume = Model.Prenume,
-        IsAdmin = Model.IsAdmin,
-        IsEnable = Model.IsEnable,
-        Utilaj = Model.Utilaj
-    },
-    htmlAttributes: null
-    )
-    }
-</div>
-<div>
-    <a id="Elind" class="hide" asp-action="Elind" asp-route-id="@Model">Elind</a>
-</div>
-<div>
-    <a id="Fierastraie" class="hide" asp-action="Fierastraie" asp-route-id="@Model">Fierastraie</a>
-</div>
-<div>
-    <a id="PresaValdora" class="hide" asp-action="PresaValdora" asp-route-id="@Model">Presa Valdora</a>
-</div>
-<div>
-    <a id="RullatriceProjectMan" class="hide" asp-action="RullatriceProjectman" asp-route-id="@Model">Rullatrice Projectman</a>
-</div>
-<div>
-    <a id="RullatriceLandgraf" class="hide" asp-action="RullatriceLandgraf" asp-route-id="@Model">Rullatrice Landgraf</a>
-</div>
-<div>
-    <a id="PellatriceLandgraf" class="hide" asp-action="PellatriceLandgraf" asp-route-id="@Model">Masina de decojit</a>
-</div>
-<div>
-    <a id="NovaFlux" class="hide" asp-action="NovaFlux" asp-route-id="@Model">Nova Flux</a>
-</div>*@
+        <a id="@Model.Utilaj" class="" asp-action="Elti" asp-route-id="@Model">Elti</a>
+        @if (Model.Utilaj == UtilajeAjustaj.Elind || Model.Utilaj == UtilajeAjustaj.Toate)
+        {
+            @Html.ActionLink(
+        linkText: "Lista utilizatori",
+        actionName: "Index",
+        controllerName: "Users",
+        routeValues: new { UserId = Model.UserId,
+            UserName =Model.UserName,
+            Password = Model.Password,
+            Nume = Model.Nume,
+            Prenume = Model.Prenume,
+            IsAdmin = Model.IsAdmin,
+            IsEnable = Model.IsEnable,
+            Utilaj = Model.Utilaj
+        },
+        htmlAttributes: null
+        )
+        }
+    </div>
+    <div>
+        <a id="Elind" class="hide" asp-action="Elind" asp-route-id="@Model">Elind</a>
+    </div>
+    <div>
+        <a id="Fierastraie" class="hide" asp-action="Fierastraie" asp-route-id="@Model">Fierastraie</a>
+    </div>
+    <div>
+        <a id="PresaValdora" class="hide" asp-action="PresaValdora" asp-route-id="@Model">Presa Valdora</a>
+    </div>
+    <div>
+        <a id="RullatriceProjectMan" class="hide" asp-action="RullatriceProjectman" asp-route-id="@Model">Rullatrice Projectman</a>
+    </div>
+    <div>
+        <a id="RullatriceLandgraf" class="hide" asp-action="RullatriceLandgraf" asp-route-id="@Model">Rullatrice Landgraf</a>
+    </div>
+    <div>
+        <a id="PellatriceLandgraf" class="hide" asp-action="PellatriceLandgraf" asp-route-id="@Model">Masina de decojit</a>
+    </div>
+    <div>
+        <a id="NovaFlux" class="hide" asp-action="NovaFlux" asp-route-id="@Model">Nova Flux</a>
+    </div>*@
 
 
 @if (Model.IsAdmin)
@@ -87,8 +131,10 @@
     linkText: "Lista utilizatori",
     actionName: "Index",
     controllerName: "Users",
-    routeValues: new { UserId = Model.UserId,
-        UserName =Model.UserName,
+    routeValues: new
+        {
+            UserId = Model.UserId,
+        UserName = Model.UserName,
         Password = Model.Password,
         Nume = Model.Nume,
         Prenume = Model.Prenume,
@@ -101,11 +147,11 @@
 }
 
 @*<script>
-    $(document).ready(function () {
-        console.log("ready!");
-        //$('#Elind')
-    });
-</script>*@
+        $(document).ready(function () {
+            console.log("ready!");
+            //$('#Elind')
+        });
+    </script>*@
 
 
 @functions{

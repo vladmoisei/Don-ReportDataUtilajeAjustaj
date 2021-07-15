@@ -28,5 +28,6 @@ namespace RaportareAjustajV2
         public DbSet<CalitateOtelModel> CalitateOtelModels { get; set; }
         public DbSet<UsBlumModel> UsBlumModels { get; set; }
         public DbSet<UsBarModel> UsBarModels { get; set; }
+        public DbSet<StrungarieCilindriModel> StrungarieCilindriModel { get; set; }
     }
 }

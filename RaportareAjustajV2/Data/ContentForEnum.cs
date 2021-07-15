@@ -24,7 +24,9 @@ namespace RaportareAjustajV2
         PresaDunke,
         UsBar,
         UsBlum,
-        CalitateOtel
+        CalitateOtel,
+        StrungarieCilindriOp,
+        StrungarieCilindriCal
     }
 
     public enum TratamentTermic
